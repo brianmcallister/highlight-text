@@ -1,10 +1,10 @@
 const getHighlightWordBoundaries = require('./getHighlightWordBoundaries');
-const addHighlightWordsMarkup = require('./addHighlightWordsMarkup');
+const markup = require('./markup');
 
 const highlightWordsInText = (text, words) => {
   const boundaries = getHighlightWordBoundaries(words, text);
-  
-  return addHighlightWordsMarkup(text, boundaries);
+
+  return markup(text, boundaries, '<mark>', '</mark>');
 }
 
 module.exports = highlightWordsInText;
