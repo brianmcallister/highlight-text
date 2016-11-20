@@ -1,5 +1,5 @@
 type Text = string;
-type Subject = Text | Element;
+type Subject = Text | HTMLElement;
 type Tag = string;
 type Word = string;
 type Words = Word[];

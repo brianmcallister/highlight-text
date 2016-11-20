@@ -6,7 +6,7 @@ const browser = require('./build/browser').default;
 
 global.document = jsdom.jsdom();
 global.window = global.document.defaultView;
-global.Element = global.window.Element;
+global.HTMLElement = global.window.HTMLElement;
 
 console.log('---->', browser('test abc <a href="#">asdf</a> test', ['abc', 'asdf', 'href']));
 

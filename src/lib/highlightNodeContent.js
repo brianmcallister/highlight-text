@@ -32,7 +32,7 @@ const mutateNode = (node, words) => {
  *
  * @returns {Element}
  */
-const highlightNodeContent = (node: Element, words: Words) => {
+const highlightNodeContent = (node: HTMLElement, words: Words) => {
   const subject = node.cloneNode(true);
 
   // Highlight content in the node by mutating it.
