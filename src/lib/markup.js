@@ -1,3 +1,24 @@
+/**
+ * Add markup to `text`, at the places indicated by `boundaries`.
+ *
+ * We're doing this with exact word boundaries and `String#slice`,
+ * because if you were to do this with a regular expression and
+ * `String#replace`, you could match against the start and end tags.
+ *
+ * So for example, this could happen:
+ *
+ *   markup('test abc test', ['abc', 'mark'], '<mark>', '</mark>');
+ *   #=> 'test <<mark>mark</mark>>abc</<mark>mark</mark>> test'
+ *
+ * ...yeah, oops.
+ *
+ * @param {string} text - Text to mark up.
+ * @param {Array<Array<number, number>>} boundaries - Array of boundary tuples.
+ * @param {string} startTag - Optional start HTML tag.
+ * @param {string} endTag - Optional end HTML tag.
+ *
+ * @returns {string} Marked up text.
+ */
 const markup = (text, boundaries, startTag = '', endTag = '') => {
   const tagLength = startTag.length + endTag.length;
 
