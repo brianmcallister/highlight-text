@@ -1,22 +1,24 @@
 const markup = function(text, boundaries, startTag = '', endTag = '') {
-  var end, endIndex, endTag, i, index, len, offset, range, start, startIndex, startTag, word;
-  
-  for (index = i = 0, len = boundaries.length; i < len; index = ++i) {
-    range = boundaries[index];
-    if (index !== 0) {
-      offset = (startTag.length + endTag.length) * index;
-      startIndex = range[0] + offset;
-      endIndex = range[1] + offset;
+  return boundaries.reduce((acc, next, index) => {
+    let offset;
+    let startIndex;
+    let endIndex;
+
+    if (index === 0) {
+      startIndex = next[0];
+      endIndex = next[1];
     } else {
-      startIndex = range[0];
-      endIndex = range[1];
+      offset = (startTag.length + endTag.length) * index;
+      startIndex = next[0] + offset;
+      endIndex = next[1] + offset;
     }
-    start = text.slice(0, startIndex);
-    word = text.slice(startIndex, endIndex);
-    end = text.slice(endIndex);
-    text = "" + start + startTag + word + endTag + end;
-  }
-  return text;
+
+    const start = acc.slice(0, startIndex);
+    const word = acc.slice(startIndex, endIndex);
+    const end = acc.slice(endIndex);
+
+    return `${start}${startTag}${word}${endTag}${end}`;
+  }, text);
 };
 
 module.exports = markup;
