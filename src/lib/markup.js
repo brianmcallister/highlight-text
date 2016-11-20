@@ -1,3 +1,5 @@
+// @flow
+
 /**
  * Add markup to `text`, at the places indicated by `boundaries`.
  *
@@ -19,7 +21,12 @@
  *
  * @returns {string} Marked up text.
  */
-const markup = (text, boundaries, startTag = '', endTag = '') => {
+const markup = (
+  text: Text,
+  boundaries: Boundaries,
+  startTag: Tag = '',
+  endTag: Tag = ''
+) => {
   const tagLength = startTag.length + endTag.length;
 
   return boundaries.reduce((acc, next, index) => {
