@@ -1,5 +1,9 @@
 // @flow
 
+/**
+ * Map of escaped characters.
+ * @private
+ */
 const unescapeMap = {
   '&amp;': '&',
   '&lt;': '<',
@@ -9,6 +13,11 @@ const unescapeMap = {
   '&#x60;': '`',
 };
 
+/**
+ * Unescape some `text`.
+ *
+ * @returns {string} Unescaped text.
+ */
 const unescapeText = (text: Text) => {
   const regex = new RegExp(`(?:${Object.keys(unescapeMap).join('|')})`, 'g');
 
