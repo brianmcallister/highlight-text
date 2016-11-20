@@ -1,3 +1,3 @@
-import highlightWordsInText from '../lib/highlightWordsInText';
+import highlightWords from '../lib/highlightWords';
 
-export default highlightWordsInText;
+export default highlightWords;

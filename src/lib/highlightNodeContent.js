@@ -1,6 +1,6 @@
 // @flow
 
-import highlightWordsInText from './highlightWordsInText';
+import highlightWords from './highlightWords';
 
 /**
  * Mutate a `node` by highlighting and setting its `textContent` property.
@@ -20,7 +20,7 @@ const mutateNode = (node, words) => {
 
   if (node.nodeType === 3) {
     // eslint-disable-next-line no-param-reassign
-    node.textContent = highlightWordsInText(node.textContent, words);
+    node.textContent = highlightWords(node.textContent, words);
   }
 };
 

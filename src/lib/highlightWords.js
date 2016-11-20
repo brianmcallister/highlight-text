@@ -12,10 +12,10 @@ const getHighlightWordBoundaries = require('./getHighlightWordBoundaries');
  *
  * @returns {string} Highlighted text.
  */
-const highlightWordsInText = (text: Text, words: Words) => {
+const highlightWords = (text: Text, words: Words) => {
   const boundaries = getHighlightWordBoundaries(words, text);
 
   return markup(text, boundaries, '<mark>', '</mark>');
 };
 
-export default highlightWordsInText;
+export default highlightWords;
