@@ -18,4 +18,4 @@ const highlightWordsInText = (text: Text, words: Words) => {
   return markup(text, boundaries, '<mark>', '</mark>');
 };
 
-module.exports = highlightWordsInText;
+export default highlightWordsInText;

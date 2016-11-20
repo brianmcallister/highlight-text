@@ -6,6 +6,8 @@
   "browser": "src/browser/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "babel --watch=./src --out-dir=./build",
+    "build": "babel ./src --out-dir=./build",
     "flow": "flow",
     "lint": "eslint --ignore-path .gitignore --ext .jsx --ext .js src"
   },
