@@ -1,25 +1,25 @@
+// @flow
+
 import highlightWordsInText from './highlightWordsInText';
 
-const highlightNodeContent = function(node, words) {
-  var childNode, content, i, len, ref;
+const mutateNode = (node, words) => {
   if (node.childNodes.length) {
-    ref = node.childNodes;
-    for (i = 0, len = ref.length; i < len; i++) {
-      childNode = ref[i];
-      highlightNodeContent(childNode, words);
-    }
+    Array.from(node.childNodes)
+      .forEach(childNode => mutateNode(childNode, words));
   }
-  if (node.nodeType !== 3) {
-    return void 0;
-  }
-  // content = _.escape(node.textContent);
-  content = node.textContent;
 
-  if (content.trim() === '') {
-    return void 0;
+  if (node.nodeType === 3) {
+    // eslint-disable-next-line no-param-reassign
+    node.textContent = highlightWordsInText(node.textContent, words);
   }
-  node.textContent = 'asdf'//highlightWordsInText(words, content);
-  return void 0;
+};
+
+const highlightNodeContent = (node: Element, words: Words) => {
+  const subject = node.cloneNode(true);
+
+  mutateNode(subject, words);
+
+  return subject;
 };
 
 export default highlightNodeContent;
