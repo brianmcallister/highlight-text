@@ -1,5 +1,11 @@
-const highlightWords = require('./build/node');
+const jsdom = require('jsdom');
+const node = require('./build/node').default;
+const browser = require('./build/browser').default;
 
-console.log('----> ', highlightWords('test abc test', ['abc']));
-console.log('----> ', highlightWords('test abc test', ['test', 'mark']));
-console.log('----> ', highlightWords('test abc something $10 test', ['test', '$10']));
+global.document = jsdom.jsdom();
+
+console.log('---->', browser('test abc test', ['abc']));
+
+console.log('----> ', node('test abc test', ['abc']));
+console.log('----> ', node('test abc test', ['test', 'mark']));
+console.log('----> ', node('test abc something $10 test', ['test', '$10']));

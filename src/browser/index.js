@@ -1,8 +1,8 @@
 /* eslint-env browser */
 
-const highlightNodeContent = require('../lib/highlightNodeContent');
+import highlightNodeContent from '../lib/highlightNodeContent';
 
-module.exports = function browser(text, words = []) {
+const browser = (text, words = []) => {
   if (words.length === 0) {
     return text;
   }
@@ -14,3 +14,5 @@ module.exports = function browser(text, words = []) {
   // text = _.unescape(testDiv.innerHTML);
   return text;
 };
+
+export default browser;
