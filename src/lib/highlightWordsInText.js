@@ -15,6 +15,6 @@ const highlightWordsInText = (text: Text, words: Words) => {
   const boundaries = getHighlightWordBoundaries(words, text);
 
   return markup(text, boundaries, '<mark>', '</mark>');
-}
+};
 
 module.exports = highlightWordsInText;

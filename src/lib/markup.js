@@ -25,7 +25,7 @@ const markup = (
   text: Text,
   boundaries: Boundaries,
   startTag: Tag = '',
-  endTag: Tag = ''
+  endTag: Tag = '',
 ) => {
   const tagLength = startTag.length + endTag.length;
 
@@ -43,7 +43,7 @@ const markup = (
     const end = acc.slice(endIndex);
 
     return `${start}${startTag}${word}${endTag}${end}`;
-  }, text)
+  }, text);
 };
 
 module.exports = markup;
