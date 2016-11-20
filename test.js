@@ -1,4 +1,4 @@
-const highlightWords = require('./src/node');
+const highlightWords = require('./build/node');
 
 console.log('----> ', highlightWords('test abc test', ['abc']));
 console.log('----> ', highlightWords('test abc test', ['test', 'mark']));

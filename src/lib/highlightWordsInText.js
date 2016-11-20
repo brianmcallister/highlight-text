@@ -1,7 +1,8 @@
 // @flow
 
+import markup from './markup';
+
 const getHighlightWordBoundaries = require('./getHighlightWordBoundaries');
-const markup = require('./markup');
 
 /**
  * Highlight `words` in `text.

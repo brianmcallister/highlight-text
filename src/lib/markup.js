@@ -46,4 +46,4 @@ const markup = (
   }, text);
 };
 
-module.exports = markup;
+export default markup;
