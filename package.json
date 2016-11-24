@@ -7,6 +7,7 @@
   "scripts": {
     "test": "mocha",
     "test:watch": "npm t -- -w --reporter min",
+    "test:ci": "npm t -- --reporter tap",
     "dev": "babel --watch=./src --out-dir=./build",
     "build": "babel ./src --out-dir=./build",
     "flow": "flow",
