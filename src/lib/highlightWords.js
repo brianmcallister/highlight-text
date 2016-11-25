@@ -2,7 +2,7 @@
 
 import markup from './markup';
 
-const getHighlightWordBoundaries = require('./getHighlightWordBoundaries');
+const getBoundaries = require('./getBoundaries');
 
 /**
  * Highlight `words` in `text.
@@ -13,7 +13,7 @@ const getHighlightWordBoundaries = require('./getHighlightWordBoundaries');
  * @returns {string} Highlighted text.
  */
 const highlightWords = (text: Text, words: Words) => {
-  const boundaries = getHighlightWordBoundaries(words, text);
+  const boundaries = getBoundaries(words, text);
 
   return markup(text, boundaries, '<mark>', '</mark>');
 };
