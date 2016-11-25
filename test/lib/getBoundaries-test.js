@@ -7,6 +7,7 @@ describe('getBoundaries', () => {
     expect(() => getBoundaries(['a'])).to.throw();
 
     expect(getBoundaries(['a'], 'aaa')).to.eql([[0, 3]]);
+    expect(getBoundaries(['b', 'a'], 'abababab')).to.eql([[0, 8]]);
     expect(getBoundaries(['a', 'b'], 'aaabbb')).to.eql([[0, 6]]);
     expect(getBoundaries(['a', 'b'], 'aaa bbb')).to.eql([[0, 3], [4, 7]]);
     expect(getBoundaries(['^', '$10'], 'asdf^ asdf % ^ blah $10 asdf$asdf'))

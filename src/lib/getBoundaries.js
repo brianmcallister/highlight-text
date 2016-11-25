@@ -1,5 +1,6 @@
-module.exports = (words, text) => {
-  const boundaries = [];
+// @flow
+
+module.exports = (words: Words, text: Text) => {
   const textString = text.toLowerCase();
 
   // Create a RegExp that we'll use to escape RegExp metacharacters from the
@@ -7,8 +8,9 @@ module.exports = (words, text) => {
   const metaCharacterRegExp = new RegExp(['\\\\', '\\^', '\\$', '\\.', '\\|',
     '\\?', '\\*', '\\+', '\\(', '\\)', '\\[', '\\{'].join('|'), 'g');
 
-  words.forEach((wordd) => {
-    const word = wordd.toLowerCase();
+  // Reduce the words down into an array of Boundaries.
+  const boundaries = words.reduce((acc, next) => {
+    const word = next.toLowerCase();
 
     // Create a new regular expression with escaped RegExp metacharacters.
     const escaped = word.replace(metaCharacterRegExp, match => `\\${match}`);
@@ -17,10 +19,11 @@ module.exports = (words, text) => {
     // Find all matches in the string without reseting the lastIndex.
     // See: http://mzl.la/1yi7TmE
     while (regex.exec(textString)) {
-      boundaries.push([regex.lastIndex - word.length, regex.lastIndex]);
+      acc.push([regex.lastIndex - word.length, regex.lastIndex]);
     }
-  });
 
+    return acc;
+  }, []);
 
   // Return now if there's one or less boundary.
   if (boundaries.length <= 1) {
@@ -50,37 +53,39 @@ module.exports = (words, text) => {
   // Sort the flat array of word boundaries.
   flattened.sort((a, b) => a - b);
 
-  // Reduce the flat, sorted array of word boundaries down into an array of
-  // tuples, of type `Array<Array<number, number>>`.
+  // Reduce the flat, sorted array of Bounds down into an array of Boundaries.
   return flattened.reduce((acc, next, index) => {
-    // On the first iteration, push a new array with the next number.
+    // On the first iteration, push in a new Boundary.
     if (index === 0) {
-      acc.push([next]);
+      acc.push([next, -1]);
+
       return acc;
     }
 
     const last = acc[acc.length - 1];
 
-    // On the last iteration, push the next number into the last array.
+    // On the last iteration, overwrite the 1st index with the next number.
     if (index === flattened.length - 1) {
-      last.push(next);
+      last[1] = next;
+
       return acc;
     }
 
-    // If the last array already has a length of 2, push in a new array with
-    // the next number.
-    if (last.length === 2) {
-      acc.push([next]);
+    // If the last Boundary's 1st index is -1, push in a new Boundary with
+    // the next number at the first index.
+    if (last[1] !== -1) {
+      acc.push([next, -1]);
+
       return acc;
     }
 
-    // If the last array has a length of one, check if the current number is
-    // a floating point (which indicates a new boundary).
-    if (last.length === 1) {
+    // If the last Boundary's 1st index is -1, check if the current number is
+    // a floating point (which indicates a new Boundary needs to be created).
+    if (last[1] === -1) {
       if (next % 1 !== 0) {
         // Push in the previous number (we don't care about the floating point
         // numbers after this step, they're just temporary indicators).
-        last.push(flattened[index - 1]);
+        last[1] = flattened[index - 1];
       }
     }
 
