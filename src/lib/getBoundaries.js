@@ -1,6 +1,34 @@
 // @flow
 
-module.exports = (words: Words, text: Text) => {
+/**
+ * Given words and text, build an array of word boundaries within
+ * the text. Overlapping words will be handled appropriately. See the examples.
+ *
+ * @param {Words} - Array of words to highlight in the text.
+ * @param {Text} - String of text in which to highlight words.
+ *
+ * Examples
+ *
+ *   getHighlightWordBoundaries ['test'], 'aaatestaaa'
+ *   #=> [[3, 7]]
+ *
+ *   getHighlightWordBoundaries ['z'], 'aaazaaazaaa'
+ *   #=> [[3, 4], [7, 8]]
+ *
+ *   getHighlightWordBoundaries ['do', 'dollar'], 'aaa do dollar aaa'
+ *   #=> [[4, 6], [7, 9]]
+ *
+ * As you can see in the above examples, 'overlapping' words should be handled
+ * correctly. If they weren't, you would get too many boundaries back, making
+ * highlighting the text very difficult.
+ *
+ * For example, the string 'do' is a substring of 'dollar'. If the overlapping
+ * boundaries weren't handled, this function would return an array with *3*
+ * inidicies, marking 'do' (after 'aaa'), 'do' (inside 'dollar'), and 'dollar'.
+ *
+ * @returns {Boundaries}
+ */
+const getBoundaries = (words: Words, text: Text) => {
   const textString = text.toLowerCase();
 
   // Create a RegExp that we'll use to escape RegExp metacharacters from the
@@ -92,3 +120,5 @@ module.exports = (words: Words, text: Text) => {
     return acc;
   }, []);
 };
+
+export default getBoundaries;
