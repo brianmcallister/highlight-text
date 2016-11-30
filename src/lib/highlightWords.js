@@ -1,8 +1,7 @@
 // @flow
 
 import markup from './markup';
-
-const getBoundaries = require('./getBoundaries');
+import getBoundaries from './getBoundaries';
 
 /**
  * Highlight `words` in `text.
@@ -13,7 +12,7 @@ const getBoundaries = require('./getBoundaries');
  * @returns {string} Highlighted text.
  */
 const highlightWords = (text: Text, words: Words) => {
-  const boundaries = getBoundaries(words, text);
+  const boundaries = getBoundaries(text, words);
 
   return markup(text, boundaries, '<mark>', '</mark>');
 };

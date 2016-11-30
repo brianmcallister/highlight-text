@@ -16,10 +16,10 @@
  *
  * ...yeah, oops.
  *
- * @param {string} text - Text to mark up.
- * @param {Array<Array<number, number>>} boundaries - Array of boundary tuples.
- * @param {string} startTag - Optional start HTML tag.
- * @param {string} endTag - Optional end HTML tag.
+ * @param {Text} text - Text to mark up.
+ * @param {Boundaries} boundaries - Array of boundary tuples.
+ * @param {Tag} startTag - Optional start HTML tag.
+ * @param {Tag} endTag - Optional end HTML tag.
  *
  * @returns {string} Marked up text.
  */

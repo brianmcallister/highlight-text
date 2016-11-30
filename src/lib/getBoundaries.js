@@ -28,7 +28,7 @@
  *
  * @returns {Boundaries}
  */
-const getBoundaries = (words: Words, text: Text) => {
+const getBoundaries = (text: Text, words: Words) => {
   const textString = text.toLowerCase();
 
   // Create a RegExp that we'll use to escape RegExp metacharacters from the
