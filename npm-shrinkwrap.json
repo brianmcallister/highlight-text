@@ -913,9 +913,9 @@
       }
     },
     "eslint-plugin-flowtype": {
-      "version": "2.29.1",
-      "from": "eslint-plugin-flowtype@latest",
-      "resolved": "https://registry.npmjs.org/eslint-plugin-flowtype/-/eslint-plugin-flowtype-2.29.1.tgz"
+      "version": "2.25.0",
+      "from": "eslint-plugin-flowtype@2.25.0",
+      "resolved": "https://registry.npmjs.org/eslint-plugin-flowtype/-/eslint-plugin-flowtype-2.25.0.tgz"
     },
     "eslint-plugin-import": {
       "version": "2.2.0",

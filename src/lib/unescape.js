@@ -18,7 +18,7 @@ const unescapeMap = {
  *
  * @returns {string} Unescaped text.
  */
-const unescapeText = (text: Text) => {
+const unescapeText = (text: Text = '') => {
   const regex = new RegExp(`(?:${Object.keys(unescapeMap).join('|')})`, 'g');
 
   return text.replace(regex, match => unescapeMap[match]);
