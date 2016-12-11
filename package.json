@@ -11,7 +11,8 @@
     "dev": "babel --watch=./src --out-dir=./dist",
     "build": "babel ./src --out-dir=./dist",
     "flow": "flow",
-    "lint": "eslint --ignore-path .gitignore --ext .jsx --ext .js src"
+    "lint": "eslint --ignore-path .gitignore --ext .jsx --ext .js src",
+    "types": "flow-typed install"
   },
   "author": "",
   "license": "ISC",
@@ -29,6 +30,7 @@
     "eslint-plugin-jsx-a11y": "2.2.3",
     "eslint-plugin-react": "6.8.0",
     "flow-bin": "0.36.0",
+    "flow-typed": "2.0.0",
     "jsdom": "9.8.3",
     "mocha": "3.2.0",
     "proxyquire": "1.7.10",

@@ -10,3 +10,4 @@ chai.config.includeStack = true;
 global.document = jsdom.jsdom();
 global.window = global.document.defaultView;
 global.navigator = global.window.navigator;
+global.HTMLElement = global.window.HTMLElement;
