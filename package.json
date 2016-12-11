@@ -5,7 +5,7 @@
   "main": "src/node/index.js",
   "browser": "src/browser/index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "nyc --reporter=html --reporter=text mocha",
     "test:watch": "npm t -- -w --reporter min",
     "test:ci": "npm t -- --reporter tap",
     "dev": "babel --watch=./src --out-dir=./dist",
@@ -33,7 +33,12 @@
     "flow-typed": "2.0.0",
     "jsdom": "9.8.3",
     "mocha": "3.2.0",
+    "nyc": "10.0.0",
     "proxyquire": "1.7.10",
     "sinon": "1.17.6"
+  },
+  "nyc": {
+    "sourceMap": false,
+    "instrument": false
   }
 }

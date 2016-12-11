@@ -1,0 +1,16 @@
+{
+  "nyc": {
+    "include": [
+      "src/**"
+    ],
+    "extension": [
+      ".js",
+      ".jsx"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  }
+}
