@@ -20,7 +20,7 @@ const browser = (subject: Subject, words: Words = []) => {
 
   let el;
 
-  if (subject instanceof HTMLElement) {
+  if (subject instanceof window.HTMLElement) {
     el = subject;
   } else {
     // Create a DOM element here so we can detect and properly highlight HTML
