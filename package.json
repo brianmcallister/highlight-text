@@ -1,5 +1,5 @@
 {
-  "name": "@brianmcallister/highlight",
+  "name": "@brianmcallister/highlight-text",
   "version": "1.0.0",
   "description": "Hightlight words in text.",
   "main": "src/node/index.js",

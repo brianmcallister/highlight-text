@@ -1,4 +1,4 @@
-# @brianmcallister/highlight
+# @brianmcallister/highlight-text
 
 Highlight some `words` in some `text`.
 
