@@ -1,3 +1,5 @@
+// @flow
+
 /* eslint-disable */
 
 type Text = string;
