@@ -8,7 +8,7 @@
   "scripts": {
     "test": "NODE_ENV=test nyc --reporter=html --reporter=text mocha",
     "test:watch": "npm t -- -w --reporter min",
-    "test:ci": "npm t -- --reporter tap",
+    "test:ci": "scripts/test-ci.sh",
     "dev": "babel --watch=./src --out-dir=./dist",
     "build": "babel ./src --out-dir=./dist",
     "flow": "flow",
