@@ -3,5 +3,7 @@ module.exports = {
     expect: true,
     describe: true,
     it: true,
+    document: true,
+    sinon: true,
   },
 };
