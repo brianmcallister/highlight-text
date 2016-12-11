@@ -6,10 +6,10 @@
   "main": "src/node/index.js",
   "browser": "src/browser/index.js",
   "scripts": {
-    "test": "NODE_ENV=test nyc --reporter=html --reporter=text mocha",
+    "test": "nyc --reporter=html --reporter=text mocha",
     "test:watch": "npm t -- -w --reporter min",
     "test:ci": "scripts/test-ci.sh",
-    "coverage": "NODE_ENV=test nyc report --reporter=text-lcov | coveralls",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "dev": "babel --watch=./src --out-dir=./dist",
     "build": "babel ./src --out-dir=./dist",
     "flow": "flow",
