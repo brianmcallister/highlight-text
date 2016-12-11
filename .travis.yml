@@ -1,5 +1,6 @@
 language: node_js
 before_install: npm i -g npm@4.0.2
+after_success: npm run coverage
 script: npm run test:ci
 node_js:
   - 6
