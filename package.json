@@ -1,6 +1,6 @@
 {
   "name": "@brianmcallister/highlight-text",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Hightlight words in text.",
   "repository": "https://github.com/brianmcallister/highlight-text",
   "main": "src/node/index.js",
