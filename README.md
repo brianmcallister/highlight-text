@@ -2,6 +2,22 @@
 
 Highlight `words` in some `text`.
 
-#### TODO
+## Installation.
 
-- [ ] Distribution and publish to npm.
+`npm i @brianmcallister/highlight-text -SE`
+
+## Browser API.
+
+```js
+const highlightText = require('@brianmcallister/highlight-text/browser');
+
+const results = highlightText('some text', ['om', 'ex']);
+```
+
+## Node API.
+
+```js
+const highlightText = require('@brianmcallister/highlight-text/node');
+
+const results = highlightText('some text', ['om', 'ex']);
+```
