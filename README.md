@@ -1,4 +1,4 @@
-# @brianmcallister/highlight-text [![Coverage Status](https://coveralls.io/repos/github/brianmcallister/highlight-text/badge.svg?branch=master)](https://coveralls.io/github/brianmcallister/highlight-text?branch=bm-add-c) [![Build Status](https://travis-ci.org/brianmcallister/highlight-text.svg?branch=master)](https://travis-ci.org/brianmcallister/highlight-text)
+# @brianmcallister/highlight-text [![Coverage Status](https://coveralls.io/repos/github/brianmcallister/highlight-text/badge.svg?branch=master)](https://coveralls.io/github/brianmcallister/highlight-text?branch=bm-add-c) [![Build Status](https://travis-ci.org/brianmcallister/highlight-text.svg?branch=master)](https://travis-ci.org/brianmcallister/highlight-text) [![Dependencies](https://david-dm.org/brianmcallister/highlight-text.svg)](https://david-dm.org/brianmcallister/highlight-text.svg)
 
 Highlight `words` in some `text`.
 
