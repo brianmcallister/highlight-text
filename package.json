@@ -37,7 +37,7 @@
     "eslint-plugin-react": "7.0.1",
     "flow-bin": "0.49.1",
     "flow-typed": "2.1.2",
-    "jsdom": "11.1.0",
+    "jsdom": "11.5.1",
     "nyc": "11.0.3",
     "mocha": "3.4.1",
     "proxyquire": "1.8.0",
