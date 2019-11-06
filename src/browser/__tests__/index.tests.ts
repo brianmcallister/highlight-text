@@ -11,13 +11,16 @@ describe('browser api', () => {
 
   it('should handle html element inputs', () => {
     const link = document.createElement('a');
+    
     link.textContent = 'heres a link to http://google.com';
     link.href = 'http://google.com';
 
     const span = document.createElement('span');
+
     span.textContent = 'heres some text about something: ';
 
     const node = document.createElement('div');
+
     node.classList.add('node-google');
     node.appendChild(span);
     node.appendChild(link);
