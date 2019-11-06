@@ -4,7 +4,7 @@ const { NODE_ENV: env = 'development' } = process.env;
 
 module.exports = {
   mode: env,
-  entry: './src/browser/index',
+  entry: './src/node',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
