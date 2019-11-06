@@ -1,5 +1,3 @@
-// @flow
-
 /**
  * Map of escaped characters.
  * @private
@@ -18,7 +16,7 @@ const unescapeMap = {
  *
  * @returns {string} Unescaped text.
  */
-const unescapeText = (text: Text = '') => {
+const unescapeText = (text: string = '') => {
   const regex = new RegExp(`(?:${Object.keys(unescapeMap).join('|')})`, 'g');
 
   return text.replace(regex, match => unescapeMap[match]);

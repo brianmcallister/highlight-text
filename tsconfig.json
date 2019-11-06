@@ -9,6 +9,5 @@
   },
   "include": [
     "./src",
-    "./test"
   ]
 }

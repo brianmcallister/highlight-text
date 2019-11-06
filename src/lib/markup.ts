@@ -1,7 +1,3 @@
-// @flow
-
-/* global window */
-
 /**
  * Add markup to `text`, at the places indicated by `boundaries`.
  *
@@ -24,10 +20,10 @@
  * @returns {string} Marked up text.
  */
 const markup = (
-  text: Text = '',
-  boundaries: Boundaries = [],
-  startTag: Tag = '',
-  endTag: Tag = '',
+  text: string,
+  boundaries: [number, number],
+  startTag: string,
+  endTag: string,
 ) => {
   // Keep track of successful 'markups', instead of the using the index of the
   // reduce iterations, since the reducer will bail out if the boundaries are

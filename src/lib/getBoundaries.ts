@@ -1,11 +1,6 @@
-// @flow
-
 /**
  * Given words and text, build an array of word boundaries within
  * the text. Overlapping words will be handled appropriately. See the examples.
- *
- * @param {Words} - Array of words to highlight in the text.
- * @param {Text} - String of text in which to highlight words.
  *
  * Examples
  *
@@ -25,10 +20,8 @@
  * For example, the string 'do' is a substring of 'dollar'. If the overlapping
  * boundaries weren't handled, this function would return an array with *3*
  * inidicies, marking 'do' (after 'aaa'), 'do' (inside 'dollar'), and 'dollar'.
- *
- * @returns {Boundaries}
  */
-const getBoundaries = (text: Text, words: Words) => {
+const getBoundaries = (text: string, words: string[]) => {
   const textString = text.toLowerCase();
 
   // Create a RegExp that we'll use to escape RegExp metacharacters from the
@@ -37,7 +30,7 @@ const getBoundaries = (text: Text, words: Words) => {
     '\\?', '\\*', '\\+', '\\(', '\\)', '\\[', '\\{'].join('|'), 'g');
 
   // Reduce the words down into an array of Boundaries.
-  const boundaries = words.reduce((acc, next) => {
+  const boundaries = words.reduce<[number, number][]>((acc, next) => {
     const word = next.toLowerCase();
 
     // Create a new regular expression with escaped RegExp metacharacters.
@@ -64,7 +57,7 @@ const getBoundaries = (text: Text, words: Words) => {
 
   // Get all the numbers covered by every range in the boundaries. Make sure
   // they're unique.
-  const flattened = boundaries.reduce((acc, next, index) => {
+  const flattened = boundaries.reduce<number[]>((acc, next, index) => {
     // Push in a floating point number when the _start_ of a range is a unique
     // number. This floating point number allows us to indicate where adjacent
     // boundaries are, even after sorting the flattened array.
@@ -82,7 +75,7 @@ const getBoundaries = (text: Text, words: Words) => {
   flattened.sort((a, b) => a - b);
 
   // Reduce the flat, sorted array of Bounds down into an array of Boundaries.
-  return flattened.reduce((acc, next, index) => {
+  return flattened.reduce<[number, number][]>((acc, next, index) => {
     // On the first iteration, push in a new Boundary.
     if (index === 0) {
       acc.push([next, -1]);

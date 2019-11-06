@@ -1,5 +1,3 @@
-// @flow
-
 import markup from './markup';
 import getBoundaries from './getBoundaries';
 
@@ -11,7 +9,7 @@ import getBoundaries from './getBoundaries';
  *
  * @returns {string} Highlighted text.
  */
-const highlightWords = (text: Text, words: Words) => {
+const highlightWords = (text: string, words: string[]) => {
   const boundaries = getBoundaries(text, words);
 
   return markup(text, boundaries, '<mark>', '</mark>');

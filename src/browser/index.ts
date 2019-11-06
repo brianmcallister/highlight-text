@@ -1,7 +1,3 @@
-// @flow
-
-/* eslint-env browser */
-
 import highlightNodeContent from '../lib/highlightNodeContent';
 import unescape from '../lib/unescape';
 
@@ -13,7 +9,7 @@ import unescape from '../lib/unescape';
  *
  * @returns {string} Highlighted version of the Subject.
  */
-const browser = (subject: Subject, words: Words = []) => {
+const browser = (subject: string | HTMLElement, words: string[] = []) => {
   if (words.length === 0) {
     return subject;
   }

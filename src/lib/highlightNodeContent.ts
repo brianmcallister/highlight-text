@@ -1,5 +1,3 @@
-// @flow
-
 import highlightWords from './highlightWords';
 
 /**
@@ -32,7 +30,7 @@ const mutateNode = (node, words) => {
  *
  * @returns {Element}
  */
-const highlightNodeContent = (node: HTMLElement, words: Words) => {
+const highlightNodeContent = (node: HTMLElement, words: string[]) => {
   const subject = node.cloneNode(true);
 
   // Highlight content in the node by mutating it.
