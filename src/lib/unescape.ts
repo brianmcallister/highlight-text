@@ -2,7 +2,7 @@
  * Map of escaped characters.
  * @private
  */
-const unescapeMap = {
+const unescapeMap: { [key: string]: string } = {
   '&amp;': '&',
   '&lt;': '<',
   '&gt;': '>',

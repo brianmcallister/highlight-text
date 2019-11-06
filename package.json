@@ -6,8 +6,8 @@
   "main": "src/node/index.js",
   "browser": "src/browser/index.js",
   "scripts": {
-    "build_old": "npm run clean && babel ./src --out-dir=./dist",
-    "build": "tsc --emitDeclarationOnly --outdir dist",
+    "build": "npm run clean && npm run build:types && webpack && rimraf dist/__tests__",
+    "build:types": "tsc --emitDeclarationOnly --outdir dist",
     "clean": "rimraf dist",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "dev": "babel --watch=./src --out-dir=./dist",
