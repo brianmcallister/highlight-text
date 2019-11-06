@@ -2,25 +2,30 @@
   "name": "@brianmcallister/highlight-text",
   "version": "1.2.0",
   "description": "Hightlight words in text.",
-  "repository": "https://github.com/brianmcallister/highlight-text",
+  "license": "MIT",
+  "repository": "brianmcallister/highlight-text",
+  "author": {
+		"name": "Brian Wm. McAllister",
+		"email": "brian@brianmcallister.com",
+		"url": "https://www.brianmcallister.com"
+	},
   "main": "src/node/index.js",
   "browser": "src/browser/index.js",
+  "keywords": [
+    "highlight",
+    "text",
+    "dom",
+    "strings"
+  ],
   "scripts": {
     "build": "npm run clean && npm run build:types && webpack && rimraf dist/*/__tests__",
     "build:types": "tsc --emitDeclarationOnly --outdir dist",
     "clean": "rimraf dist",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "dev": "babel --watch=./src --out-dir=./dist",
-    "flow": "flow",
     "lint": "eslint --ignore-path .gitignore --ext .jsx --ext .js src",
-    "prepublish": "npm run build",
-    "test:ci": "scripts/test-ci.sh",
-    "test:watch": "npm t -- -w --reporter min",
-    "test": "nyc --reporter=html --reporter=text mocha",
-    "types": "flow-typed install"
+    "prepare": "npm run build",
+    "test": "jest",
+    "types": "tsc --noEmit"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@babel/core": "7.7.0",
     "@babel/preset-env": "7.7.1",
