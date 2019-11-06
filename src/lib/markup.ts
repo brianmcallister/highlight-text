@@ -11,19 +11,12 @@
  *   #=> 'test <<mark>mark</mark>>abc</<mark>mark</mark>> test'
  *
  * ...yeah, oops.
- *
- * @param {Text} text - Text to mark up.
- * @param {Boundaries} boundaries - Array of boundary tuples.
- * @param {Tag} startTag - Optional start HTML tag.
- * @param {Tag} endTag - Optional end HTML tag.
- *
- * @returns {string} Marked up text.
  */
 const markup = (
   text: string,
-  boundaries: [number, number],
-  startTag: string,
-  endTag: string,
+  boundaries: [number, number][],
+  startTag: string = '',
+  endTag: string = '',
 ) => {
   // Keep track of successful 'markups', instead of the using the index of the
   // reduce iterations, since the reducer will bail out if the boundaries are
