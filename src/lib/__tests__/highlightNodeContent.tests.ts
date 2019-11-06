@@ -5,15 +5,14 @@ describe('highlightNodeContent', () => {
     expect(highlightNodeContent).toThrow();
   });
 
-  // it('should clone the passed in node', () => {
-  //   const node = document.createElement('div');
+  it('should clone the passed in node', () => {
+    const node = document.createElement('div');
+    const spy = jest.spyOn(node, 'cloneNode');
 
-  //   sinon.spy(node, 'cloneNode');
+    highlightNodeContent(node, ['something']);
 
-  //   highlightNodeContent(node);
-
-  //   expect(node.cloneNode.withArgs(true).callCount).toEqual(1);
-  // });
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
 
   it('should highlight text in a node', () => {
     const node = document.createElement('div');
