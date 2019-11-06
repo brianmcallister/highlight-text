@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "build": "npm run clean && npm run build:types && webpack && rimraf dist/*/__tests__",
-    "build:types": "tsc --emitDeclarationOnly --outdir dist",
+    "build:types": "tsc --outdir dist",
     "clean": "rimraf dist",
     "lint": "eslint --ignore-path .gitignore --ext .jsx --ext .js src",
     "prepare": "npm run build",
