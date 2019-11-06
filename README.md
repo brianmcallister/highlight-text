@@ -23,8 +23,6 @@ npm install @brianmcallister/highlight-text
 This is the default export. Use this function to highlight words in text.
 
 ```js
-import highlightText from '@brianmcallister/highlight-text';
-
 highlightText(text: string, words: string[]): string;
 ```
 
