@@ -12,7 +12,7 @@
  *
  * ...yeah, oops.
  */
-const markup = (
+export default (
   text: string,
   boundaries: [number, number][],
   startTag: string = '',
@@ -23,11 +23,9 @@ const markup = (
   // incorrect or unworkable.
   let markups = 0;
   const tagLength = startTag.length + endTag.length;
-  const toString = ((typeof global !== 'undefined' && global) ||
-    (typeof window !== 'undefined' && window)).toString;
 
   return boundaries.reduce((acc, next) => {
-    if (toString.call(next) !== '[object Array]') {
+    if (!Array.isArray(next)) {
       throw new Error('Incorrect boundary. `boundaries` must be Array<number, number>');
     }
 
@@ -58,5 +56,3 @@ const markup = (
     return `${start}${startTag}${word}${endTag}${end}`;
   }, text);
 };
-
-export default markup;

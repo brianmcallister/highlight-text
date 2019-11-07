@@ -2,16 +2,24 @@ import browserAPI from '../index';
 
 describe('browser api', () => {
   it('should return the subject if there are no words', () => {
-    expect(browserAPI('test')).toEqual('test');
+    expect.assertions(1);
+
+    expect(browserAPI('test')).toStrictEqual('test');
   });
 
   it('should handle string inputs', () => {
-    expect(browserAPI('something test something', ['test'])).toEqual('something <mark>test</mark> something');
+    expect.assertions(1);
+
+    expect(browserAPI('something test something', ['test'])).toStrictEqual(
+      'something <mark>test</mark> something',
+    );
   });
 
   it('should handle html element inputs', () => {
+    expect.assertions(2);
+
     const link = document.createElement('a');
-    
+
     link.textContent = 'heres a link to http://google.com';
     link.href = 'http://google.com';
 
@@ -30,8 +38,12 @@ describe('browser api', () => {
     // TODO - Fix this by creating a separate highlight node function
     // that always returns an HTMLElement.
     // @ts-ignore
-    expect(highlightedNode.outerHTML).toEqual('<div class="node-google"><span>heres some &lt;mark&gt;text&lt;/mark&gt; about something: </span><a href="http://google.com">heres a link to http://&lt;mark&gt;google&lt;/mark&gt;.com</a></div>');
+    expect(highlightedNode.outerHTML).toStrictEqual(
+      '<div class="node-google"><span>heres some &lt;mark&gt;text&lt;/mark&gt; about something: </span><a href="http://google.com">heres a link to http://&lt;mark&gt;google&lt;/mark&gt;.com</a></div>',
+    );
     // @ts-ignore
-    expect(highlightedNode.textContent).toEqual('heres some <mark>text</mark> about something: heres a link to http://<mark>google</mark>.com');
+    expect(highlightedNode.textContent).toStrictEqual(
+      'heres some <mark>text</mark> about something: heres a link to http://<mark>google</mark>.com',
+    );
   });
 });

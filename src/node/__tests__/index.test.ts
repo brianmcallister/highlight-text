@@ -3,6 +3,7 @@ import highlightWords from '../../lib/highlightWords';
 
 describe('node api', () => {
   it('should be the same as the highlightWords function', () => {
-    expect(nodeAPI).toEqual(highlightWords);
+    expect.assertions(1);
+    expect(nodeAPI).toStrictEqual(highlightWords);
   });
 });
