@@ -12,9 +12,9 @@ jobs:
             - node-modules-
       - run: npm ci
       - save_cache:
-        paths:
-          - node_modules
-        key: node-modules-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+          key: node-modules-{{ checksum "package.json" }}
       # - run: cd demo && npm ci && cd -
       - run: npm run lint
 
@@ -29,9 +29,9 @@ jobs:
             - node-modules-
       - run: npm ci
       - save_cache:
-        paths:
-          - node_modules
-        key: node-modules-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+          key: node-modules-{{ checksum "package.json" }}
       - run: npm run types
 
   test:
@@ -45,10 +45,11 @@ jobs:
             - node-modules-
       - run: npm ci
       - save_cache:
-        paths:
-          - node_modules
-        key: node-modules-{{ checksum "package.json" }}
-      - run: npm t
+          paths:
+            - node_modules
+          key: node-modules-{{ checksum "package.json" }}
+      - run: npm test -- --coverage
+      - run: bash <(curl -s https://codecov.io/bash) -f ./coverage/coverage-final.json
 
 workflows:
   version: 2
