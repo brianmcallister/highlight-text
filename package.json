@@ -21,7 +21,7 @@
     "build": "npm run clean && npm run build:types && webpack && rimraf dist/*/__tests__",
     "build:types": "tsc --outdir dist",
     "clean": "rimraf dist",
-    "lint": "eslint './src/**/*.{js,ts,tsx}'",
+    "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore ./src ./demo",
     "prepare": "npm run build",
     "test": "jest",
     "types": "tsc --noEmit"
