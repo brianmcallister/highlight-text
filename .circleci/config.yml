@@ -1,33 +1,59 @@
 version: 2
 
 jobs:
-  build:
+  lint:
     docker:
       - image: circleci/node:lts
-
     steps:
       - checkout
-
-      # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
+            - node-modules-{{ checksum "package.json" }}
+            - node-modules-
       - run: npm ci
-
       - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      - run: npm test
-      - run: npm run types
+        paths:
+          - node_modules
+        key: node-modules-{{ checksum "package.json" }}
+      # - run: cd demo && npm ci && cd -
       - run: npm run lint
+
+  typescript:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - node-modules-{{ checksum "package.json" }}
+            - node-modules-
+      - run: npm ci
+      - save_cache:
+        paths:
+          - node_modules
+        key: node-modules-{{ checksum "package.json" }}
+      - run: npm run types
+
+  test:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - node-modules-{{ checksum "package.json" }}
+            - node-modules-
+      - run: npm ci
+      - save_cache:
+        paths:
+          - node_modules
+        key: node-modules-{{ checksum "package.json" }}
+      - run: npm t
 
 workflows:
   version: 2
   build:
     jobs:
-      - build
+      - lint
+      - typescript
+      - test
