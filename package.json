@@ -9,8 +9,10 @@
     "email": "brian@brianmcallister.com",
     "url": "https://www.brianmcallister.com"
   },
-  "main": "src/node/index.js",
-  "browser": "src/browser/index.js",
+  "files": [
+    "dist/**/*"
+  ],
+  "main": "dis/node/index.js",
   "keywords": [
     "highlight",
     "text",
