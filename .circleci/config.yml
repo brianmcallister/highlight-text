@@ -1,4 +1,5 @@
 version: 2
+
 jobs:
   build:
     docker:
@@ -24,3 +25,9 @@ jobs:
       - run: npm test
       - run: npm run types
       - run: npm run lint
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
