@@ -5,7 +5,7 @@ module.exports = {
     node: true,
   },
   extends: [
-    'airbnb',
+    'airbnb-typescript',
     'plugin:jest/all',
     'prettier',
   ],
