@@ -26,24 +26,29 @@ describe('markup', () => {
   it('should wrap found text with passed prepend and append strings', () => {
     expect.assertions(4);
 
+    /* eslint-disable prettier/prettier */
     expect(markup('test', [[1, 2]], '+')).toStrictEqual('t+est');
     expect(markup('test', [[1, 2]], '+', '')).toStrictEqual('t+est');
     expect(markup('test', [[1, 2]], '', '+')).toStrictEqual('te+st');
     expect(markup('test', [[1, 2]], '+', '+')).toStrictEqual('t+e+st');
+    /* eslint-enable prettier/prettier */
   });
 
   it('should correctly handle multiple and weird boundaries', () => {
     expect.assertions(4);
 
+    /* eslint-disable prettier/prettier */
     expect(markup('test', [[0, 1], [2, 3]], '+', '+')).toStrictEqual('+t+e+s+t');
     expect(markup('test', [[0, 1], [2, 3], [15, 16]], '+', '+')).toStrictEqual('+t+e+s+t');
     expect(markup('test', [[-2, -1], [0, 1], [2, 3]], '+', '+')).toStrictEqual('+t+e+s+t');
     expect(markup('test', [[0, 1], [-2, -1], [2, 3]], '+', '+')).toStrictEqual('+t+e+s+t');
+    /* eslint-enable prettier/prettier */
   });
 
   it('should not handle overlapping boundaries.', () => {
     expect.assertions(1);
 
+    /* eslint-disable-next-line prettier/prettier */
     expect(markup('something aaaaa something', [[10, 12], [10, 15]], '-', '-')).toStrictEqual(
       'something -a-a-aaa- something',
     );

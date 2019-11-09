@@ -16,7 +16,10 @@ describe('getBoundaries', () => {
     expect(getBoundaries('aaa', ['a'])).toStrictEqual([[0, 3]]);
     expect(getBoundaries('abababab', ['b', 'a'])).toStrictEqual([[0, 8]]);
     expect(getBoundaries('aaabbb', ['a', 'b'])).toStrictEqual([[0, 6]]);
-    expect(getBoundaries('aaa bbb', ['a', 'b'])).toStrictEqual([[0, 3], [4, 7]]);
+    expect(getBoundaries('aaa bbb', ['a', 'b'])).toStrictEqual([
+      [0, 3],
+      [4, 7],
+    ]);
     expect(getBoundaries('asdf^ asdf % ^ blah $10 asdf$asdf', ['^', '$10'])).toStrictEqual([
       [4, 5],
       [13, 14],
