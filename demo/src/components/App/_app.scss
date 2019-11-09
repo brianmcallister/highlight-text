@@ -4,24 +4,24 @@
   &__header {
     @include type-style-manhattan;
 
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
     margin: auto;
     padding: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
   }
 
   &__header-link {
-    text-decoration: none;
     color: map-get($colors, allen);
     margin-left: 10px;
+    text-decoration: none;
   }
 
   &__header-links {
     a {
-      text-decoration: none;
       color: map-get($colors, allen);
       margin-left: 10px;
+      text-decoration: none;
 
       &:hover {
         text-decoration: underline;
@@ -91,7 +91,7 @@
     padding: 37px 0 100px 60px;
 
     a {
-      color: blue;
+      color: #00f;
     }
 
     .highlight-text {
@@ -166,13 +166,13 @@
     &__chat {
       background-color: #fff;
       display: flex;
-      flex-direction: column;
       flex: 3;
+      flex-direction: column;
       height: 500px;
+      min-height: 100%;
       overflow: auto;
       padding: 10px;
       scroll-behavior: smooth;
-      min-height: 100%;
     }
 
     &__msg {

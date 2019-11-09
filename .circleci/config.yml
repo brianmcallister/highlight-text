@@ -18,6 +18,22 @@ jobs:
       # - run: cd demo && npm ci && cd -
       - run: npm run lint
 
+  stylelint:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - node-modules-{{ checksum "package.json" }}
+            - node-modules-
+      - run: npm ci
+      - save_cache:
+          paths:
+            - node_modules
+          key: node-modules-{{ checksum "package.json" }}
+      - run: npm run stylelint
+
   typescript:
     docker:
       - image: circleci/node:lts
@@ -56,5 +72,6 @@ workflows:
   build:
     jobs:
       - lint
+      - stylelint
       - typescript
       - test
