@@ -1,0 +1,70 @@
+@import '../../styles/base';
+
+.word-list {
+  $this: &;
+
+  &__text-input-clear {
+    display: none;
+  }
+
+  &__input-wrap {
+    position: relative;
+  }
+
+  &__input {
+    display: inline-block;
+    padding-right: 30px;
+    width: 100%;
+  }
+
+  &__clear-text {
+    background: none;
+    color: map-get($colors, bayard) !important;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__tags {
+    margin-left: -5px;
+    margin-top: 10px;
+  }
+
+  &__tag {
+    @include type-style-manhattan;
+
+    background: map-get($colors, bayard);
+    border-radius: 4px;
+    color: map-get($colors, barrow);
+    display: inline-block;
+    margin: 5px;
+    padding: 2px 8px;
+
+    button {
+      background: none;
+      color: map-get($colors, beach);
+      height: 17px;
+      line-height: 0;
+      margin: 0 0 0 6px;
+      padding: 0 0 3px 3px;
+      text-align: center;
+      width: 17px;
+    }
+  }
+
+  label {
+    @include type-style-manhattan;
+  }
+
+  &--has-input {
+    #{$this}__clear-text {
+      display: inline-block;
+    }
+  }
+}

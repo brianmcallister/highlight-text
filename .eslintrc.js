@@ -1,11 +1,43 @@
-const path = require('path');
-
 module.exports = {
+  env: {
+    browser: true,
+    es6: true,
+    node: true,
+  },
   extends: [
-    'airbnb',
-    'plugin:flowtype/recommended',
+    'airbnb-typescript',
+    'plugin:jest/all',
+    'prettier',
   ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        'extensions': ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+  },
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2018,
+    sourceType: 'module',
+  },
   plugins: [
-    'flowtype',
+    'jest',
+    'react',
+    '@typescript-eslint',
+    'prettier',
   ],
+  rules: {
+    'prettier/prettier': 'error',
+    'arrow-parens': 0,
+    'jest/require-to-throw-message': 0,
+    'react/button-has-type': 0,
+  },
 };

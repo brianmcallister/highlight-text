@@ -1,0 +1,224 @@
+@import '../../styles/base';
+
+.app {
+  &__header {
+    @include type-style-manhattan;
+
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    margin: auto;
+    padding: 30px;
+  }
+
+  &__header-link {
+    color: map-get($colors, allen);
+    margin-left: 10px;
+    text-decoration: none;
+  }
+
+  &__header-links {
+    a {
+      color: map-get($colors, allen);
+      margin-left: 10px;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__content {
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+  &__lead-in {
+    @include type-style-queens;
+
+    background-color: map-get($colors, allen);
+    color: map-get($colors, barrow);
+    margin: 20px 0 50px;
+    padding: 50px 150px 50px 50px;
+    width: 90%;
+
+    a {
+      color: map-get($colors, barrow);
+    }
+
+    code {
+      background: map-get($colors, beach);
+      padding: 1px 3px;
+    }
+  }
+
+  &__example {
+    display: flex;
+  }
+
+  &__example-text {
+    background-color: map-get($colors, allen);
+    flex: 3;
+    padding: 15px 45px 100px;
+
+    .word-list {
+      margin-top: 30px;
+    }
+  }
+
+  &__headline {
+    @include type-style-brooklyn;
+
+    color: map-get($colors, astor);
+    margin-bottom: 15px;
+  }
+
+  &__example-content {
+    @include type-style-bronx;
+
+    color: map-get($colors, barrow);
+    margin: 0 auto;
+    max-width: 1020px;
+  }
+
+  &__example-result {
+    @include type-style-queens;
+
+    background: map-get($colors, ann);
+    color: #383b46;
+    flex: 5;
+    padding: 37px 0 100px 60px;
+
+    a {
+      color: #00f;
+    }
+
+    .highlight-text {
+      padding: 30px 40px;
+    }
+  }
+
+  &__chat-example {
+    background: map-get($colors, bayard);
+    padding: 100px;
+  }
+
+  &__chat-headline {
+    @include type-style-brooklyn;
+
+    color: map-get($colors, ann);
+    margin: 0;
+    text-align: center;
+  }
+
+  .browser {
+    box-shadow: 0 10px 25px 5px rgba(#000, 0.8);
+    margin-top: 50px;
+    width: 100%;
+
+    &__header {
+      align-items: center;
+      background: linear-gradient(#9b9b9b, #6d6d6d);
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      display: flex;
+      height: 24px;
+      justify-content: flex-start;
+      padding: 0 10px;
+      width: 100%;
+    }
+
+    &__header-button {
+      background: linear-gradient(#4b4b4b, #303030);
+      border-radius: 11px;
+      box-shadow: inset 0 1px 1px 0 rgba(#000, 0.4), 0 1px 1px 0 rgba(#fff, 0.15);
+      height: 11px;
+      margin: 0 3px;
+      width: 11px;
+    }
+
+    &__content {
+      background: #fff;
+      display: flex;
+    }
+
+    &__saved-terms {
+      @include type-style-brooklyn;
+
+      background-color: map-get($colors, bayard);
+      color: map-get($colors, astor);
+      flex: 1;
+      padding: 30px 0 60px 30px;
+
+      p {
+        margin: 0;
+      }
+    }
+
+    &__saved-headline {
+      @include type-style-bronx;
+
+      color: map-get($colors, beach);
+      margin-bottom: 25px !important;
+    }
+
+    &__chat {
+      background-color: #fff;
+      display: flex;
+      flex: 3;
+      flex-direction: column;
+      height: 500px;
+      min-height: 100%;
+      overflow: auto;
+      padding: 10px;
+      scroll-behavior: smooth;
+    }
+
+    &__msg {
+      align-self: flex-start;
+      border-radius: 8px;
+      display: flex;
+      margin-bottom: 5px;
+      padding: 10px;
+      width: 80%;
+    }
+
+    &__msg-details {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+
+      p {
+        margin: 0;
+      }
+    }
+
+    &__msg-from {
+      @include type-style-manhattan;
+
+      margin-right: 10px;
+    }
+
+    &__msg-date {
+      @include type-style-manhattan;
+
+      color: map-get($colors, barrow);
+    }
+
+    &__msg-avatar {
+      border-radius: 6px;
+      height: 35px;
+      margin-right: 10px;
+      margin-top: 5px;
+      width: 35px;
+    }
+
+    .highlight-text {
+      @include type-style-queens;
+
+      color: map-get($colors, bayard);
+      margin-top: -2px;
+    }
+  }
+}

@@ -1,3 +1,0 @@
---recursive
---require ./test/helper.js
---compilers js:babel-core/register,jsx:babel-core/register
