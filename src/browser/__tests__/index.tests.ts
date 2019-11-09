@@ -16,7 +16,7 @@ describe('browser api', () => {
   });
 
   it('should handle html element inputs', () => {
-    expect.assertions(2);
+    expect.assertions(1);
 
     const link = document.createElement('a');
 
@@ -35,15 +35,8 @@ describe('browser api', () => {
 
     const highlightedNode = browserAPI(node, ['text', 'google']);
 
-    // TODO - Fix this by creating a separate highlight node function
-    // that always returns an HTMLElement.
-    // @ts-ignore
-    expect(highlightedNode.outerHTML).toStrictEqual(
+    expect(highlightedNode).toStrictEqual(
       '<div class="node-google"><span>heres some &lt;mark&gt;text&lt;/mark&gt; about something: </span><a href="http://google.com">heres a link to http://&lt;mark&gt;google&lt;/mark&gt;.com</a></div>',
-    );
-    // @ts-ignore
-    expect(highlightedNode.textContent).toStrictEqual(
-      'heres some <mark>text</mark> about something: heres a link to http://<mark>google</mark>.com',
     );
   });
 });
