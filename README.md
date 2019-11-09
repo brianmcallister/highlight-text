@@ -1,4 +1,6 @@
-# @brianmcallister/highlight-text [![codecov](https://codecov.io/gh/brianmcallister/highlight-text/branch/master/graph/badge.svg)](https://codecov.io/gh/brianmcallister/highlight-text) [![CircleCI](https://circleci.com/gh/brianmcallister/highlight-text.svg?style=svg)](https://circleci.com/gh/brianmcallister/highlight-text) [![Netlify Status](https://api.netlify.com/api/v1/badges/2b1ad5fe-39ec-4437-a76c-08669e6cef54/deploy-status)](https://app.netlify.com/sites/competent-bose-28432a/deploys)
+# @brianmcallister/highlight-text
+
+[![codecov](https://codecov.io/gh/brianmcallister/highlight-text/branch/master/graph/badge.svg)](https://codecov.io/gh/brianmcallister/highlight-text) [![CircleCI](https://circleci.com/gh/brianmcallister/highlight-text.svg?style=svg)](https://circleci.com/gh/brianmcallister/highlight-text) [![Netlify Status](https://api.netlify.com/api/v1/badges/2b1ad5fe-39ec-4437-a76c-08669e6cef54/deploy-status)](https://highlight-text.netlify.com/) [![npm version](https://badge.fury.io/js/%40brianmcallister%2Fhighlight-text.svg)](https://badge.fury.io/js/%40brianmcallister%2Fhighlight-text)
 
 `highlight-text` makes highlighting words and characters in a string quick and easy. This library is primarily used for adding a visual indicator to any text in a web page, much like the default search feature in your browser.
 
@@ -9,6 +11,10 @@ This is a great way to highlight search results collected from an input field wi
 - Visual design elements
 
 By default, the library will accept a string and some sub strings to search for. It will return all of the found strings surrounded by [`<mark>` tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark). This is configurable, in case you want to use any arbitrary string.
+
+## Demo
+
+Check out the hosted demo right here: [https://highlight-text.netlify.com/](https://highlight-text.netlify.com/)
 
 ## Installation
 
