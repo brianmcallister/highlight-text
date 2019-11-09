@@ -51,6 +51,7 @@ const WordList = ({ allowSave = true, placeholder, label, onChange }: Props) => 
       const { value } = inputEl.current;
 
       setWords(unique(words, value));
+      setCurrentWord('');
 
       inputEl.current.value = '';
     }
@@ -78,12 +79,16 @@ const WordList = ({ allowSave = true, placeholder, label, onChange }: Props) => 
             type="text"
           />
 
-          <button onClick={reset} className={`${baseClass}__clear-text`} type="button">
+          <button onClick={reset} className={`button ${baseClass}__clear-text`} type="button">
             &times;
           </button>
         </div>
 
-        {allowSave && <button type="submit">Save word</button>}
+        {allowSave && (
+          <button className="button" type="submit">
+            Save word
+          </button>
+        )}
       </form>
 
       <div className={`${baseClass}__tags`}>
@@ -92,6 +97,7 @@ const WordList = ({ allowSave = true, placeholder, label, onChange }: Props) => 
             {word}
 
             <button
+              className="button"
               type="button"
               onClick={() => {
                 setWords(remove(words, word));

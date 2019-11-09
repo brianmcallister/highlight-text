@@ -1,3 +1,5 @@
+@import '../../styles/base';
+
 .word-list {
   $this: &;
 
@@ -10,19 +12,19 @@
   }
 
   &__input {
-    width: 100%;
     display: inline-block;
     padding-right: 30px;
+    width: 100%;
   }
 
   &__clear-text {
-    position: absolute;
-    top: 50%;
-    right: 0;
     background: none;
-    transform: translateY(-50%);
+    color: map-get($colors, bayard) !important;
     display: none;
-    color: #2a2a2a;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 
     &:focus {
       outline: none;
@@ -35,26 +37,29 @@
   }
 
   &__tag {
-    color: #c9c9c9;
-    border: 1px solid #2b2b2b;
-    display: inline-block;
+    @include type-style-manhattan;
+
+    background: map-get($colors, bayard);
     border-radius: 4px;
-    background: linear-gradient(#242424, #1a1a1a);
-    padding: 2px 8px;
+    color: map-get($colors, barrow);
+    display: inline-block;
     margin: 5px;
-    font-size: 13px;
-    font-family: sans-serif;
+    padding: 2px 8px;
 
     button {
-      width: 17px;
+      background: none;
+      color: map-get($colors, beach);
       height: 17px;
       line-height: 0px;
-      text-align: center;
-      padding: 0 0 3px 3px;
-      background: none;
       margin: 0 0 0 6px;
-      color: #797979;
+      padding: 0 0 3px 3px;
+      text-align: center;
+      width: 17px;
     }
+  }
+
+  label {
+    @include type-style-manhattan;
   }
 
   &--has-input {

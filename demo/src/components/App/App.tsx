@@ -1,11 +1,11 @@
-import classnames from 'classnames';
-import React from 'react';
 import faker from 'faker';
+import React from 'react';
 
 import HighlightText from '../HighlightText';
 import WordList from '../WordList';
+import LogoIcon from '../LogoIcon';
 
-import './app.scss';
+import './_app.scss';
 
 interface Msg {
   msg: string;
@@ -25,39 +25,42 @@ const rand = (min: number = 0, max: number = 0) => {
 };
 
 const TICKERS = [
-  'FB',
   'AAPL',
+  'AAPL',
+  'AAPL',
+  'FB',
+  'FB',
+  'FB',
+  'GOOG',
+  'GOOG',
   'GOOG',
   'MSFT',
+  'SPY',
   'TSLA',
-  'X',
   'VIX',
   'VOO',
-  'SPY',
-  'FB',
-  'AAPL',
-  'GOOG',
-  'FB',
-  'AAPL',
-  'GOOG',
+  'X',
 ];
 
 const getMsg = () => {
   const pre = faker.lorem.sentence(rand(1, 5));
   const post = faker.lorem.sentence(rand(1, 3));
-  const hasSymbol = Math.random() > 0.5;
-  const side = Math.random() > 0.5 ? 'buy' : 'sell';
+  const hasSymbol = Math.random() > 0.4;
+  const side = Math.random() > 0.4 ? 'buy' : 'sell';
   const sym = hasSymbol
     ? ` I'd like to ${side} ${TICKERS[rand(0, TICKERS.length)]} @ $${faker.finance.amount()} `
     : ' ';
 
   return {
+    // @ts-ignore
     date: new Date().toLocaleTimeString('en', { timeStyle: 'medium' }),
     msg: `${pre}${sym}${post}`.trim(),
     from: `${faker.name.firstName()} ${faker.name.lastName()}`,
     avatar: faker.internet.avatar(),
   };
 };
+
+const INITIAL_MESSAGES = Array.from(Array(15)).map(getMsg);
 
 /**
  * App component.
@@ -66,7 +69,7 @@ const App = () => {
   const chatEl = React.useRef<HTMLDivElement>(null);
   const [basicWords, setBasicWords] = React.useState<string[]>([]);
   const [htmlWords, setHtmlWords] = React.useState<string[]>([]);
-  const [messages, setMessages] = React.useState<Msg[]>([]);
+  const [messages, setMessages] = React.useState<Msg[]>(INITIAL_MESSAGES);
 
   const div = document.createElement('div');
 
@@ -90,13 +93,34 @@ const App = () => {
     return () => clearInterval(interval);
   }, [messages]);
 
-  console.log('messages', messages);
-
   return (
     <div className={baseClass}>
-      <header className={`${baseClass}__header`}>• Brian Wm. McAllister</header>
+      <header className={`${baseClass}__header`}>
+        <LogoIcon />
+        <a className={`${baseClass}__header-link`} href="https://www.brianmcallister.com">
+          Brian Wm. McAllister
+        </a>
+
+        <div className={`${baseClass}__header-links`}>
+          <a href="https://github.com/brianmcallister/highlight-text">GitHub</a>
+          <a href="https://npmjs.com/package/@brianmcallister/highlight-text">npm</a>
+        </div>
+      </header>
 
       <div className={`${baseClass}__content`}>
+        <div className={`${baseClass}__lead-in`}>
+          <code>highlight-text</code>
+          &nbsp;makes highlighting words and characters in a string quick and easy. This library is
+          primarily used for adding a visual indicator to any text in a web page, much like the
+          default search feature in your browser. This is a great way to highlight search results
+          collected from an input field within your application, or a range of possible use cases:
+          User configured search terms in a chat application Administrator configured announcements
+          Visual design elements By default, the library will accept a string and some sub strings
+          to search for. It will return all of the found strings surrounded by &nbsp;
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark">{'<mark>'}</a>
+          &nbsp; tags. This is configurable, in case you want to use any arbitrary string.
+        </div>
+
         <div className={`${baseClass}__example`}>
           <div className={`${baseClass}__example-text`}>
             <p className={`${baseClass}__headline`}>Basic text highlighting</p>
