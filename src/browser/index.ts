@@ -11,6 +11,10 @@ import unescape from '../lib/unescape';
  */
 const browser = (subject: string | HTMLElement, words: string[] = []) => {
   if (words.length === 0) {
+    if (subject instanceof HTMLElement) {
+      return subject.outerHTML;
+    }
+
     return subject;
   }
 
@@ -32,7 +36,7 @@ const browser = (subject: string | HTMLElement, words: string[] = []) => {
     return unescape(highlighted.innerHTML);
   }
 
-  return highlighted;
+  return highlighted.outerHTML;
 };
 
 export default browser;

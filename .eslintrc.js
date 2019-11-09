@@ -38,5 +38,6 @@ module.exports = {
     'prettier/prettier': 'error',
     'arrow-parens': 0,
     'jest/require-to-throw-message': 0,
+    'react/button-has-type': 0,
   },
 };

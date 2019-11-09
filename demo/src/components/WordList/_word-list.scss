@@ -1,0 +1,65 @@
+.word-list {
+  $this: &;
+
+  &__text-input-clear {
+    display: none;
+  }
+
+  &__input-wrap {
+    position: relative;
+  }
+
+  &__input {
+    width: 100%;
+    display: inline-block;
+    padding-right: 30px;
+  }
+
+  &__clear-text {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    background: none;
+    transform: translateY(-50%);
+    display: none;
+    color: #2a2a2a;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__tags {
+    margin-top: 10px;
+    margin-left: -5px;
+  }
+
+  &__tag {
+    color: #c9c9c9;
+    border: 1px solid #2b2b2b;
+    display: inline-block;
+    border-radius: 4px;
+    background: linear-gradient(#242424, #1a1a1a);
+    padding: 2px 8px;
+    margin: 5px;
+    font-size: 13px;
+    font-family: sans-serif;
+
+    button {
+      width: 17px;
+      height: 17px;
+      line-height: 0px;
+      text-align: center;
+      padding: 0 0 3px 3px;
+      background: none;
+      margin: 0 0 0 6px;
+      color: #797979;
+    }
+  }
+
+  &--has-input {
+    #{$this}__clear-text {
+      display: inline-block;
+    }
+  }
+}

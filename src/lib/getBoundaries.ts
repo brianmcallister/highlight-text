@@ -33,7 +33,11 @@ export default (text: string, words: string[]) => {
 
   // Reduce the words down into an array of Boundaries.
   const boundaries = words.reduce<[number, number][]>((acc, next) => {
-    const word = next.toLowerCase();
+    const word = next.toLowerCase().trim();
+
+    if (!word || !word.length) {
+      return acc;
+    }
 
     // Create a new regular expression with escaped RegExp metacharacters.
     const escaped = word.replace(metaCharacterRegExp, match => `\\${match}`);
