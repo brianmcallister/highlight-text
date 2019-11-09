@@ -3,11 +3,6 @@ import unescape from '../lib/unescape';
 
 /**
  * Highlight `words` in `subject`.
- *
- * @param {Subject} subject - Thing to highlight. Can be an HTML element or a string.
- * @param {Words} Words - Array of words to highlight in `subject`;
- *
- * @returns {string} Highlighted version of the Subject.
  */
 const browser = (subject: string | HTMLElement, words: string[] = []) => {
   if (words.length === 0) {
