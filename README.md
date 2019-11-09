@@ -1,6 +1,6 @@
 # @brianmcallister/highlight-text
 
-[![codecov](https://codecov.io/gh/brianmcallister/highlight-text/branch/master/graph/badge.svg)](https://codecov.io/gh/brianmcallister/highlight-text) [![CircleCI](https://circleci.com/gh/brianmcallister/highlight-text.svg?style=svg)](https://circleci.com/gh/brianmcallister/highlight-text) [![Netlify Status](https://api.netlify.com/api/v1/badges/2b1ad5fe-39ec-4437-a76c-08669e6cef54/deploy-status)](https://highlight-text.netlify.com/) [![npm version](https://badge.fury.io/js/%40brianmcallister%2Fhighlight-text.svg)](https://badge.fury.io/js/%40brianmcallister%2Fhighlight-text)
+[![codecov](https://codecov.io/gh/brianmcallister/highlight-text/branch/master/graph/badge.svg)](https://codecov.io/gh/brianmcallister/highlight-text) [![CircleCI](https://circleci.com/gh/brianmcallister/highlight-text.svg?style=svg)](https://circleci.com/gh/brianmcallister/highlight-text) [![npm version](https://badge.fury.io/js/%40brianmcallister%2Fhighlight-text.svg)](https://badge.fury.io/js/%40brianmcallister%2Fhighlight-text)
 
 `highlight-text` makes highlighting words and characters in a string quick and easy. This library is primarily used for adding a visual indicator to any text in a web page, much like the default search feature in your browser.
 
