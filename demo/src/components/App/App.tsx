@@ -1,7 +1,7 @@
 import faker from 'faker';
+import HighlightText from '@brianmcallister/react-highlight-text';
 import React from 'react';
 
-import HighlightText from '../HighlightText';
 import WordList from '../WordList';
 import LogoIcon from '../LogoIcon';
 
