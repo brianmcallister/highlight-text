@@ -1,9 +1,10 @@
+import AutoScroll from '@brianmcallister/react-auto-scroll';
 import faker from 'faker';
 import HighlightText from '@brianmcallister/react-highlight-text';
 import React from 'react';
 
-import WordList from '../WordList';
 import LogoIcon from '../LogoIcon';
+import WordList from '../WordList';
 
 import './_app.scss';
 
@@ -186,7 +187,7 @@ const App = () => {
                 <p>FB</p>
               </div>
 
-              <div className="browser__chat" ref={chatEl}>
+              <AutoScroll height={500} showOption={false}>
                 {messages.map(msg => {
                   return (
                     <div key={msg.msg} className="browser__msg">
@@ -203,7 +204,7 @@ const App = () => {
                     </div>
                   );
                 })}
-              </div>
+              </AutoScroll>
             </div>
           </div>
         </div>
