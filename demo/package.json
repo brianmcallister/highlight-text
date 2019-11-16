@@ -1,22 +1,16 @@
 {
-  "name": "redux-websocket-demo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "demo",
   "scripts": {
     "build": "webpack --mode=production",
     "start": "webpack-dev-server --hot"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@babel/core": "7.4.4",
     "@babel/plugin-proposal-class-properties": "7.7.0",
     "@babel/preset-env": "7.7.1",
     "@babel/preset-react": "7.7.0",
     "@babel/preset-typescript": "7.7.2",
-    "@brianmcallister/highlight-text": "2.0.0-beta.2",
+    "@brianmcallister/highlight-text": "latest",
     "@brianmcallister/react-auto-scroll": "1.0.1",
     "@brianmcallister/react-highlight-text": "0.1.0-beta.2",
     "@types/faker": "4.1.7",
