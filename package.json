@@ -1,6 +1,6 @@
 {
   "name": "@brianmcallister/highlight-text",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Hightlight `words` in `text`",
   "main": "dist/index.js",
   "repository": "brianmcallister/highlight-text",
