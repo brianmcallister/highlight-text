@@ -1,9 +1,11 @@
 {
   "name": "@brianmcallister/highlight-text",
   "version": "2.0.0",
-  "description": "Hightlight words in text.",
-  "license": "MIT",
+  "description": "Hightlight `words` in `text`",
+  "main": "dist/index.js",
   "repository": "brianmcallister/highlight-text",
+  "homepage": "https://highlight-text.netlify.com/",
+  "license": "MIT",
   "author": {
     "name": "Brian Wm. McAllister",
     "email": "brian@brianmcallister.com",
@@ -12,12 +14,13 @@
   "files": [
     "dist/**/*"
   ],
-  "main": "dist/index.js",
   "keywords": [
     "highlight",
-    "text",
+    "highlight-text",
     "dom",
-    "strings"
+    "string-manipulation",
+    "markup",
+    "text",
   ],
   "scripts": {
     "build:types": "tsc --outdir dist",
