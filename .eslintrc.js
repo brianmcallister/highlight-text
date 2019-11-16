@@ -1,43 +1,31 @@
 module.exports = {
-  env: {
-    browser: true,
-    es6: true,
-    node: true,
-  },
+  plugins: [
+    '@typescript-eslint',
+    'eslint-comments',
+    'jest',
+    'promise',
+  ],
   extends: [
     'airbnb-typescript',
-    'plugin:jest/all',
-    'prettier',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:eslint-comments/recommended',
+    'plugin:jest/recommended',
+    'plugin:promise/recommended',
+    'plugin:prettier/recommended',
+    'prettier/react',
+    'prettier/@typescript-eslint',
   ],
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
+  env: {
+    node: true,
+    browser: true,
+    jest: true,
   },
-  settings: {
-    'import/resolver': {
-      node: {
-        'extensions': ['.js', '.jsx', '.ts', '.tsx'],
-      },
-    },
-  },
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 2018,
-    sourceType: 'module',
-  },
-  plugins: [
-    'jest',
-    'react',
-    '@typescript-eslint',
-    'prettier',
-  ],
   rules: {
-    'prettier/prettier': 'error',
-    'arrow-parens': 0,
-    'jest/require-to-throw-message': 0,
-    'react/button-has-type': 0,
+
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/ban-ts-ignore': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
+    'react/no-did-update-set-state': 'off',
   },
-};
+}

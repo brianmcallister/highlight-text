@@ -1,4 +1,4 @@
-import nodeAPI from '../index';
+import nodeAPI from '..';
 import highlightWords from '../../lib/highlightWords';
 
 describe('node api', () => {

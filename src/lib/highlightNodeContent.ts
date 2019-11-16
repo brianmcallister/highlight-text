@@ -6,7 +6,7 @@ import highlightWords from './highlightWords';
  */
 const mutateNode = (node: Node, words: string[]) => {
   // We only want to highlight text nodes, so recursively find those nodes.
-  if (node.childNodes.length) {
+  if (node.childNodes.length > 0) {
     Array.from(node.childNodes).forEach(childNode => mutateNode(childNode, words));
   }
 

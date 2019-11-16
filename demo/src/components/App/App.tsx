@@ -21,7 +21,7 @@ const TEXT =
 const HTML_TEXT =
   'Nam eu porta nulla. <a href="https://google.com">Google</a> Quisque turpis ligula, euismod a tempus viverra, elementum sit amet metus. Vestibulum quis eleifend enim. Duis efficitur dapibus pulvinar. Phasellus euismod malesuada nisi, quis ullamcorper felis vulputate <a href="https://apple.com">https://apple.com</a> id. Curabitur quis nisl eget ligula suscipit eleifend. In sit amet leo purus. Ut maximus, enim ut sollicitudin finibus, ipsum sapien dictum neque, non hendrerit justo ex et ex.';
 
-const rand = (min: number = 0, max: number = 0) => {
+const rand = (min = 0, max = 0) => {
   return Math.floor(Math.random() * (max - min) + min);
 };
 
@@ -61,7 +61,7 @@ const getMsg = () => {
   };
 };
 
-const INITIAL_MESSAGES = Array.from(Array(15)).map(getMsg);
+const INITIAL_MESSAGES = [...new Array(15)].map(getMsg);
 
 /**
  * App component.

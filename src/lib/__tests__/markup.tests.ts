@@ -5,6 +5,7 @@ describe('markup', () => {
     expect.assertions(9);
 
     const badBoundaries = ['', 'asdf', [1], [[2, 1]], {}, null];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const fn = (boundaries: any) => markup('test', boundaries);
 
     badBoundaries.forEach(bound => expect(() => fn(bound)).toThrow());

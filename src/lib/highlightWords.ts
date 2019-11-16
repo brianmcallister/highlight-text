@@ -5,7 +5,7 @@ import getBoundaries from './getBoundaries';
  * Highlight `words` in `text.
  */
 export default (text: string, words: string[]) => {
-  if (!words.length) {
+  if (words.length === 0) {
     return text;
   }
 

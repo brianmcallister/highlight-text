@@ -12,12 +12,7 @@
  *
  * ...yeah, oops.
  */
-export default (
-  text: string,
-  boundaries: [number, number][],
-  startTag: string = '',
-  endTag: string = '',
-) => {
+export default (text: string, boundaries: [number, number][], startTag = '', endTag = '') => {
   // Keep track of successful 'markups', instead of the using the index of the
   // reduce iterations, since the reducer will bail out if the boundaries are
   // incorrect or unworkable.
@@ -26,7 +21,7 @@ export default (
 
   return boundaries.reduce((acc, next) => {
     if (!Array.isArray(next)) {
-      throw new Error('Incorrect boundary. `boundaries` must be Array<number, number>');
+      throw new TypeError('Incorrect boundary. `boundaries` must be Array<number, number>');
     }
 
     if (next[1] < next[0]) {
