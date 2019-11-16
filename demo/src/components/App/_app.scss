@@ -86,12 +86,12 @@
     @include type-style-queens;
 
     background: map-get($colors, ann);
-    color: #383b46;
+    color: map-get($colors, beak);
     flex: 5;
     padding: 37px 0 100px 60px;
 
     a {
-      color: #00f;
+      color: map-get($colors, beekman);
     }
 
     .highlight-text {
@@ -113,7 +113,7 @@
   }
 
   .browser {
-    box-shadow: 0 10px 25px 5px rgba(#000, 0.8);
+    box-shadow: 0 10px 25px 5px rgba(map-get($colors, bethune), 0.8);
     margin-top: 50px;
     width: 100%;
 

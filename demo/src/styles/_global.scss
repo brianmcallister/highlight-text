@@ -1,4 +1,4 @@
-@import 'variables/colors';
+@import 'base';
 
 * {
   box-sizing: border-box;
@@ -6,7 +6,7 @@
 
 html,
 body {
-  background: linear-gradient(to right, #181818 50%, #e9f0f8 50%);
+  background: linear-gradient(to right, map-get($colors, bayard) 50%, map-get($colors, ann) 50%);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   height: 100%;
@@ -26,7 +26,7 @@ input {
   padding: 8px 10px;
 
   &:focus {
-    box-shadow: 0 0 0 1px #2e2e2e, 0 0 0 2px #c9c9c9;
+    box-shadow: 0 0 0 1px map-get($colors, allen), 0 0 0 2px map-get($colors, barrow);
     outline: 0;
   }
 }
