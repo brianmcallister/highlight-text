@@ -35,11 +35,15 @@ npm i
 npm start
 ```
 
+###### [⇡ Top](#tableofcontents)
+
 ## Installation
 
 ```sh
 npm install @brianmcallister/highlight-text
 ```
+
+###### [⇡ Top](#tableofcontents)
 
 ## Usage
 
@@ -50,6 +54,8 @@ highlightText('some text', ['om', 'ex']);
 // #=> 's<mark>om</mark>e t<mark>ex</mark>t'
 ```
 
+###### [⇡ Top](#tableofcontents)
+
 ## API
 
 ### `highlightText`
@@ -59,3 +65,5 @@ This is the default export. Use this function to highlight words in text.
 ```js
 highlightText(text: string, words: string[]): string;
 ```
+
+###### [⇡ Top](#tableofcontents)

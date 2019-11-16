@@ -20,7 +20,7 @@
     "dom",
     "string-manipulation",
     "markup",
-    "text",
+    "text"
   ],
   "scripts": {
     "build:types": "tsc --outdir dist",
