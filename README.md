@@ -1,6 +1,6 @@
 # @brianmcallister/highlight-text
 
-[![codecov](https://codecov.io/gh/brianmcallister/highlight-text/branch/master/graph/badge.svg)](https://codecov.io/gh/brianmcallister/highlight-text) [![CircleCI](https://circleci.com/gh/brianmcallister/highlight-text.svg?style=svg)](https://circleci.com/gh/brianmcallister/highlight-text) [![npm version](https://badge.fury.io/js/%40brianmcallister%2Fhighlight-text.svg)](https://badge.fury.io/js/%40brianmcallister%2Fhighlight-text)
+[![codecov](https://codecov.io/gh/brianmcallister/highlight-text/branch/master/graph/badge.svg)](https://codecov.io/gh/brianmcallister/highlight-text) [![CircleCI](https://circleci.com/gh/brianmcallister/highlight-text.svg?style=svg)](https://circleci.com/gh/brianmcallister/highlight-text) [![npm version](https://img.shields.io/npm/v/@brianmcallister/highlight-text?label=version&color=%2354C536&logo=npm)](https://www.npmjs.com/package/@brianmcallister/highlight-text)
 
 > Highlight `words` in some `text`
 
@@ -12,7 +12,7 @@ This is a great way to highlight search results collected from an input field wi
 - Administrator configured announcements
 - Visual design elements
 
-By default, the library will accept a string and some sub strings to search for. It will return all of the found strings surrounded by [`<mark>` tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark), which can then be styled to match your branding. This is configurable, in case you want to use any arbitrary string.
+By default, the library will accept a string and some sub strings to search for. It will return all of the found strings surrounded by [`<mark>` tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark), which can then be styled to match your branding. This is configurable, in case you want to use any arbitrary string or HTML tag.
 
 ## Table of contents
 
