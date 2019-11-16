@@ -32,7 +32,7 @@
     "test": "jest",
     "types": "tsc --noEmit"
   },
-  "dependencies": {
+  "devDependencies": {
     "@babel/core": "7.7.2",
     "@babel/preset-env": "7.7.1",
     "@babel/preset-typescript": "7.7.2",
