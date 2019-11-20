@@ -9,6 +9,10 @@
     justify-content: flex-end;
     margin: auto;
     padding: 30px;
+
+    @include mobile {
+      background: map-get($colors, ann);
+    }
   }
 
   &__header-link {
@@ -43,6 +47,13 @@
     padding: 50px 150px 50px 50px;
     width: 90%;
 
+    @include mobile {
+      @include type-style-manhattan;
+
+      margin-bottom: 10px;
+      padding: 15px;
+    }
+
     a {
       color: map-get($colors, barrow);
     }
@@ -55,12 +66,20 @@
 
   &__example {
     display: flex;
+
+    @include mobile {
+      flex-direction: column;
+    }
   }
 
   &__example-text {
     background-color: map-get($colors, allen);
     flex: 3;
     padding: 15px 45px 100px;
+
+    @include mobile {
+      padding: 15px;
+    }
 
     .word-list {
       margin-top: 30px;
@@ -72,6 +91,12 @@
 
     color: map-get($colors, astor);
     margin-bottom: 15px;
+
+    @include mobile {
+      @include type-style-queens;
+
+      margin: 0 0 15px;
+    }
   }
 
   &__example-content {
@@ -90,18 +115,32 @@
     flex: 5;
     padding: 37px 0 100px 60px;
 
+    @include mobile {
+      @include type-style-bronx;
+
+      padding: 15px;
+    }
+
     a {
       color: map-get($colors, beekman);
     }
 
     .highlight-text {
       padding: 30px 40px;
+
+      @include mobile {
+        padding: 0;
+      }
     }
   }
 
   &__chat-example {
     background: map-get($colors, bayard);
     padding: 100px;
+
+    @include mobile {
+      padding: 15px 15px 50px;
+    }
   }
 
   &__chat-headline {
@@ -110,12 +149,20 @@
     color: map-get($colors, ann);
     margin: 0;
     text-align: center;
+
+    @include mobile {
+      @include type-style-queens;
+    }
   }
 
   .browser {
     box-shadow: 0 10px 25px 5px rgba(map-get($colors, bethune), 0.8);
     margin-top: 50px;
     width: 100%;
+
+    @include mobile {
+      margin-top: 15px;
+    }
 
     &__header {
       align-items: center;
@@ -141,6 +188,10 @@
     &__content {
       background: #fff;
       display: flex;
+
+      @include mobile {
+        flex-direction: column;
+      }
     }
 
     &__saved-terms {
@@ -151,8 +202,22 @@
       flex: 0 0 250px;
       padding: 30px 0 60px 30px;
 
+      @include mobile {
+        flex: 0 0;
+        font-size: initial;
+        padding: 15px;
+      }
+
       p {
         margin: 0;
+
+        @include mobile {
+          @include type-style-bronx;
+
+          display: inline;
+          line-height: normal;
+          margin-right: 5px;
+        }
       }
     }
 
@@ -161,10 +226,20 @@
 
       color: map-get($colors, beach);
       margin-bottom: 25px !important;
+
+      @include mobile {
+        @include type-style-bronx;
+      }
     }
 
     .react-auto-scroll {
       flex: 1;
+
+      &__scroll-container {
+        @include mobile {
+          height: 200px !important;
+        }
+      }
     }
 
     &__msg {
@@ -200,6 +275,7 @@
 
     &__msg-avatar {
       border-radius: 6px;
+      flex: 0 0 35px;
       height: 35px;
       margin-right: 10px;
       margin-top: 5px;
@@ -211,6 +287,10 @@
 
       color: map-get($colors, bayard);
       margin-top: -2px;
+
+      @include mobile {
+        @include type-style-manhattan;
+      }
     }
   }
 }
