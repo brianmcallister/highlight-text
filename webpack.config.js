@@ -4,10 +4,10 @@ const { NODE_ENV: env = 'development' } = process.env;
 
 module.exports = {
   mode: env,
-  entry: './src/node',
+  entry: './src/browser',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
+    filename: 'browser.js',
     libraryTarget: 'umd',
   },
   resolve: {
