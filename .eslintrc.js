@@ -12,6 +12,9 @@ module.exports = {
     'plugin:jest/recommended',
     'plugin:promise/recommended',
     'plugin:prettier/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript',
     'prettier/react',
     'prettier/@typescript-eslint',
   ],
@@ -21,6 +24,8 @@ module.exports = {
     jest: true,
   },
   rules: {
+    'import/prefer-default-export': 0,
+    'import/no-default-export': 2,
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/ban-ts-ignore': 'off',
