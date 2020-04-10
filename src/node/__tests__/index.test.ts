@@ -1,5 +1,5 @@
 import nodeAPI from '..';
-import highlightWords from '../../lib/highlightWords';
+import highlightWords from '../../lib/highlightText';
 
 describe('node api', () => {
   it('should be the same as the highlightWords function', () => {

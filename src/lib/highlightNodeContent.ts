@@ -1,4 +1,4 @@
-import highlightWords from './highlightWords';
+import highlightWords from './highlightText';
 
 /**
  * Mutate a `node` by highlighting and setting its `textContent` property.
