@@ -1,16 +1,16 @@
-import browserAPI from '../index';
+import { browser } from '../index';
 
 describe('browser api', () => {
   it('should return the subject if there are no words', () => {
     expect.assertions(1);
 
-    expect(browserAPI('test')).toStrictEqual('test');
+    expect(browser('test')).toStrictEqual('test');
   });
 
   it('should handle string inputs', () => {
     expect.assertions(1);
 
-    expect(browserAPI('something test something', ['test'])).toStrictEqual(
+    expect(browser('something test something', ['test'])).toStrictEqual(
       'something <mark>test</mark> something',
     );
   });
@@ -33,7 +33,7 @@ describe('browser api', () => {
     node.appendChild(span);
     node.appendChild(link);
 
-    const highlightedNode = browserAPI(node, ['text', 'google']);
+    const highlightedNode = browser(node, ['text', 'google']);
 
     expect(highlightedNode).toStrictEqual(
       '<div class="node-google"><span>heres some &lt;mark&gt;text&lt;/mark&gt; about something: </span><a href="http://google.com">heres a link to http://&lt;mark&gt;google&lt;/mark&gt;.com</a></div>',

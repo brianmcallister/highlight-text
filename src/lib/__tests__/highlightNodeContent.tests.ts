@@ -1,4 +1,4 @@
-import highlightNodeContent from '../highlightNodeContent';
+import { highlightNodeContent } from '../highlightNodeContent';
 
 describe('highlightNodeContent', () => {
   it('should throw an error if called with no arguments', () => {

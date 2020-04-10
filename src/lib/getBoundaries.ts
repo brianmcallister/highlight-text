@@ -21,7 +21,7 @@
  * boundaries weren't handled, this function would return an array with *3*
  * inidicies, marking 'do' (after 'aaa'), 'do' (inside 'dollar'), and 'dollar'.
  */
-export default (text: string, words: string[]) => {
+export const getBoundaries = (text: string, words: string[]) => {
   const textString = text.toLowerCase();
 
   // Create a RegExp that we'll use to escape RegExp metacharacters from the

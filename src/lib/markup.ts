@@ -12,7 +12,12 @@
  *
  * ...yeah, oops.
  */
-export default (text: string, boundaries: [number, number][], startTag = '', endTag = '') => {
+export const markup = (
+  text: string,
+  boundaries: [number, number][],
+  startTag = '',
+  endTag = '',
+) => {
   // Keep track of successful 'markups', instead of the using the index of the
   // reduce iterations, since the reducer will bail out if the boundaries are
   // incorrect or unworkable.

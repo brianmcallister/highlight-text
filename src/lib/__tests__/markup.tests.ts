@@ -1,4 +1,4 @@
-import markup from '../markup';
+import { markup } from '../markup';
 
 describe('markup', () => {
   it('should throw an error if called with bad arguments', () => {

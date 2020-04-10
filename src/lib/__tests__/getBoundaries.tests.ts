@@ -1,4 +1,4 @@
-import getBoundaries from '../getBoundaries';
+import { getBoundaries } from '../getBoundaries';
 
 describe('getBoundaries', () => {
   it('should throw an error when the arguments are incorrect', () => {

@@ -1,3 +1,1 @@
-import highlightWords from '../lib/highlightText';
-
-export default highlightWords;
+export { highlightText } from '../lib/highlightText';
