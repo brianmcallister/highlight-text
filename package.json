@@ -23,8 +23,9 @@
     "text"
   ],
   "scripts": {
-    "build:types": "tsc --outdir dist",
-    "build": "npm run clean && npm run build:types && webpack && rimraf dist/*/__tests__",
+    "build:browser": "webpack",
+    "build:ts": "tsc --outdir dist",
+    "build": "npm run clean && npm run build:ts && npm run build:browser",
     "clean": "rimraf dist",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore ./src ./demo",
     "prepare": "npm run build",

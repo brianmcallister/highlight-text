@@ -1,5 +1,5 @@
-import { highlightNodeContent } from '../lib/highlightNodeContent';
-import { unescapeText } from '../lib/unescapeText';
+import { highlightNodeContent } from '../highlightNodeContent';
+import { unescapeText } from '../unescapeText';
 
 /**
  * Highlight `words` in `subject`.

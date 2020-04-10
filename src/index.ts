@@ -1,1 +1,1 @@
-export { highlightText } from './lib/highlightText';
+export { highlightText } from './highlightText';
