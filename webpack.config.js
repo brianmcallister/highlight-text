@@ -4,10 +4,10 @@ const { NODE_ENV: env = 'development' } = process.env;
 
 module.exports = {
   mode: env,
-  entry: './src/browser',
+  entry: './src/highlightNode',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'browser.js',
+    filename: 'highlightNode.js',
     libraryTarget: 'umd',
   },
   resolve: {

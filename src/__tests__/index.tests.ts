@@ -1,4 +1,4 @@
-import { highlightText as nodeAPI } from '..';
+import nodeAPI from '..';
 import { highlightText } from '../highlightText';
 
 describe('node api', () => {

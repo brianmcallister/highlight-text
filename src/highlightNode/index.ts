@@ -4,7 +4,8 @@ import { unescapeText } from '../unescapeText';
 /**
  * Highlight `words` in `subject`.
  */
-export const browser = (subject: string | HTMLElement, words: string[] = []) => {
+// eslint-disable-next-line import/no-default-export
+export default (subject: string | HTMLElement, words: string[] = []) => {
   if (words.length === 0) {
     if (subject instanceof HTMLElement) {
       return subject.outerHTML;

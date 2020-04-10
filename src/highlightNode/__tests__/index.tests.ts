@@ -1,4 +1,4 @@
-import { browser } from '../index';
+import browser from '../index';
 
 describe('browser api', () => {
   it('should return the subject if there are no words', () => {
