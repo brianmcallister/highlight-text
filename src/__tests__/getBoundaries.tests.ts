@@ -3,11 +3,17 @@ import { getBoundaries } from '../getBoundaries';
 describe('getBoundaries', () => {
   it('should throw an error when the arguments are incorrect', () => {
     expect.assertions(3);
-    expect(getBoundaries).toThrow("Cannot read property 'toLowerCase' of undefined");
-    // @ts-ignore
-    expect(() => getBoundaries('sadfasdfasf', [1])).toThrow('next.toLowerCase is not a function');
-    // @ts-ignore
-    expect(() => getBoundaries(['a'])).toThrow('text.toLowerCase is not a function');
+    expect(getBoundaries).toThrow(
+      "Cannot read property 'toLowerCase' of undefined",
+    );
+    // @ts-expect-error should throw
+    expect(() => getBoundaries('sadfasdfasf', [1])).toThrow(
+      'next.toLowerCase is not a function',
+    );
+    // @ts-expect-error should throw
+    expect(() => getBoundaries(['a'])).toThrow(
+      'text.toLowerCase is not a function',
+    );
   });
 
   it('should return arrays of word boundaries', () => {
@@ -20,7 +26,9 @@ describe('getBoundaries', () => {
       [0, 3],
       [4, 7],
     ]);
-    expect(getBoundaries('asdf^ asdf % ^ blah $10 asdf$asdf', ['^', '$10'])).toStrictEqual([
+    expect(
+      getBoundaries('asdf^ asdf % ^ blah $10 asdf$asdf', ['^', '$10']),
+    ).toStrictEqual([
       [4, 5],
       [13, 14],
       [20, 23],

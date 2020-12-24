@@ -17,7 +17,7 @@ export const markup = (
   boundaries: [number, number][],
   startTag = '',
   endTag = '',
-) => {
+): string => {
   // Keep track of successful 'markups', instead of the using the index of the
   // reduce iterations, since the reducer will bail out if the boundaries are
   // incorrect or unworkable.
@@ -26,11 +26,15 @@ export const markup = (
 
   return boundaries.reduce((acc, next) => {
     if (!Array.isArray(next)) {
-      throw new TypeError('Incorrect boundary. `boundaries` must be Array<number, number>');
+      throw new TypeError(
+        'Incorrect boundary. `boundaries` must be Array<number, number>',
+      );
     }
 
     if (next[1] < next[0]) {
-      throw new Error('Incorrect boundary. boundary[1] must be greater than boundary[0].');
+      throw new Error(
+        'Incorrect boundary. boundary[1] must be greater than boundary[0].',
+      );
     }
 
     // The only time we don't need to account for tag length is when we're

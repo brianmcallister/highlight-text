@@ -1,35 +1,34 @@
+/* eslint-env node */
 module.exports = {
-  plugins: [
-    '@typescript-eslint',
-    'eslint-comments',
-    'jest',
-    'promise',
-  ],
+  root: true,
+  env: {
+    es6: true,
+  },
   extends: [
-    'airbnb-typescript',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:eslint-comments/recommended',
-    'plugin:jest/recommended',
-    'plugin:promise/recommended',
-    'plugin:prettier/recommended',
+    'eslint:recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
-    'plugin:import/typescript',
-    'prettier/react',
-    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended',
   ],
-  env: {
-    node: true,
-    browser: true,
-    jest: true,
-  },
   rules: {
     'import/prefer-default-export': 0,
     'import/no-default-export': 2,
-    '@typescript-eslint/no-var-requires': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/ban-ts-ignore': 'off',
-    'jsx-a11y/label-has-associated-control': 'off',
-    'react/no-did-update-set-state': 'off',
   },
-}
+  overrides: [
+    {
+      files: ['**/*.ts', '**/*.tsx'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        project: ['./tsconfig.eslint.json'],
+      },
+      plugins: ['@typescript-eslint'],
+      extends: [
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'plugin:import/typescript',
+        'prettier/@typescript-eslint',
+      ],
+    },
+  ],
+};

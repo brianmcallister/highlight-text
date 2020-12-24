@@ -7,7 +7,9 @@ import { highlightText } from './highlightText';
 const mutateNode = (node: Node, words: string[]) => {
   // We only want to highlight text nodes, so recursively find those nodes.
   if (node.childNodes.length > 0) {
-    Array.from(node.childNodes).forEach(childNode => mutateNode(childNode, words));
+    Array.from(node.childNodes).forEach((childNode) =>
+      mutateNode(childNode, words),
+    );
   }
 
   if (node.nodeType === 3) {
@@ -19,7 +21,10 @@ const mutateNode = (node: Node, words: string[]) => {
 /**
  * Highlight content in a `node`.
  */
-export const highlightNodeContent = (node: HTMLElement, words: string[]) => {
+export const highlightNodeContent = (
+  node: HTMLElement,
+  words: string[],
+): HTMLElement => {
   const subject = node.cloneNode(true);
 
   // Highlight content in the node by mutating it.

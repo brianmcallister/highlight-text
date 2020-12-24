@@ -4,8 +4,10 @@ import { unescapeText } from '../unescapeText';
 /**
  * Highlight `words` in `subject`.
  */
-// eslint-disable-next-line import/no-default-export
-export default (subject: string | HTMLElement, words: string[] = []) => {
+export const highlightNode = (
+  subject: string | HTMLElement,
+  words: string[] = [],
+): string => {
   if (words.length === 0) {
     if (subject instanceof HTMLElement) {
       return subject.outerHTML;
@@ -34,3 +36,6 @@ export default (subject: string | HTMLElement, words: string[] = []) => {
 
   return highlighted.outerHTML;
 };
+
+// eslint-disable-next-line import/no-default-export
+export default highlightNode;

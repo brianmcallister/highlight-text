@@ -28,7 +28,9 @@ describe('highlightNodeContent', () => {
     const highlightedNode = highlightNodeContent(node, ['test']);
 
     expect(node.textContent).toStrictEqual('something test something');
-    expect(highlightedNode.textContent).toStrictEqual('something <mark>test</mark> something');
+    expect(highlightedNode.textContent).toStrictEqual(
+      'something <mark>test</mark> something',
+    );
   });
 
   it('should handle complex nodes', () => {

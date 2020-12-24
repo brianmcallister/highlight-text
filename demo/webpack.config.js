@@ -1,3 +1,4 @@
+/* eslint-env node */
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -10,7 +11,10 @@ module.exports = {
   entry: './src/Index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: env === 'development' ? 'js/[name].bundle.js' : 'js/[name]-[contenthash].bundle.js',
+    filename:
+      env === 'development'
+        ? 'js/[name].bundle.js'
+        : 'js/[name]-[contenthash].bundle.js',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],

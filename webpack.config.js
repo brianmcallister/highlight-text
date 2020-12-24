@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 const path = require('path');
 
 const { NODE_ENV: env = 'development' } = process.env;

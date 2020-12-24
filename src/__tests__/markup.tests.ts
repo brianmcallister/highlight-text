@@ -8,13 +8,13 @@ describe('markup', () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const fn = (boundaries: any) => markup('test', boundaries);
 
-    badBoundaries.forEach(bound => expect(() => fn(bound)).toThrow());
+    badBoundaries.forEach((bound) => expect(() => fn(bound)).toThrow());
 
-    // @ts-ignore
+    // @ts-expect-error should throw
     expect(() => markup()).toThrow();
-    // @ts-ignore
+    // @ts-expect-error should throw
     expect(() => markup('')).toThrow();
-    // @ts-ignore
+    // @ts-expect-error should throw
     expect(() => markup('adsfasdf')).toThrow();
   });
 

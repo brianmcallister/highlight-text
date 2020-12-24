@@ -21,13 +21,29 @@
  * boundaries weren't handled, this function would return an array with *3*
  * inidicies, marking 'do' (after 'aaa'), 'do' (inside 'dollar'), and 'dollar'.
  */
-export const getBoundaries = (text: string, words: string[]) => {
+export const getBoundaries = (
+  text: string,
+  words: string[],
+): [number, number][] => {
   const textString = text.toLowerCase();
 
   // Create a RegExp that we'll use to escape RegExp metacharacters from the
   // search string.
   const metaCharacterRegExp = new RegExp(
-    ['\\\\', '\\^', '\\$', '\\.', '\\|', '\\?', '\\*', '\\+', '\\(', '\\)', '\\[', '\\{'].join('|'),
+    [
+      '\\\\',
+      '\\^',
+      '\\$',
+      '\\.',
+      '\\|',
+      '\\?',
+      '\\*',
+      '\\+',
+      '\\(',
+      '\\)',
+      '\\[',
+      '\\{',
+    ].join('|'),
     'g',
   );
 
@@ -40,7 +56,7 @@ export const getBoundaries = (text: string, words: string[]) => {
     }
 
     // Create a new regular expression with escaped RegExp metacharacters.
-    const escaped = word.replace(metaCharacterRegExp, match => `\\${match}`);
+    const escaped = word.replace(metaCharacterRegExp, (match) => `\\${match}`);
     const regex = new RegExp(escaped, 'g');
 
     // Find all matches in the string without reseting the lastIndex.

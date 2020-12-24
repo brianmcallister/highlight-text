@@ -13,7 +13,7 @@ interface Props {
 const baseClass = 'word-list';
 
 const unique = (base: string[], value?: string) => {
-  return [...new Set(base.concat(value || []))].filter(Boolean);
+  return Array.from(new Set(base.concat(value || []))).filter(Boolean);
 };
 
 const remove = (arr: string[], value?: string) => {
@@ -21,14 +21,19 @@ const remove = (arr: string[], value?: string) => {
     return arr;
   }
 
-  const set = new Set(arr);
+  const set = new Set<string>(arr);
 
   set.delete(value);
 
-  return [...new Set(set)];
+  return Array.from(new Set<string>(set));
 };
 
-export const WordList = ({ allowSave = true, placeholder, label, onChange }: Props) => {
+export const WordList = ({
+  allowSave = true,
+  placeholder,
+  label,
+  onChange,
+}: Props): JSX.Element => {
   const inputEl = React.useRef<HTMLInputElement>(null);
   const [words, setWords] = React.useState<string[]>([]);
   const [currentWord, setCurrentWord] = React.useState<string>('');
@@ -75,11 +80,15 @@ export const WordList = ({ allowSave = true, placeholder, label, onChange }: Pro
             id="input-1"
             ref={inputEl}
             placeholder={placeholder}
-            onKeyUp={event => setCurrentWord(event.currentTarget.value)}
+            onKeyUp={(event) => setCurrentWord(event.currentTarget.value)}
             type="text"
           />
 
-          <button onClick={reset} className={`button ${baseClass}__clear-text`} type="button">
+          <button
+            onClick={reset}
+            className={`button ${baseClass}__clear-text`}
+            type="button"
+          >
             &times;
           </button>
         </div>
@@ -92,7 +101,7 @@ export const WordList = ({ allowSave = true, placeholder, label, onChange }: Pro
       </form>
 
       <div className={`${baseClass}__tags`}>
-        {words.map(word => (
+        {words.map((word) => (
           <div key={word} className={`${baseClass}__tag`}>
             {word}
 
