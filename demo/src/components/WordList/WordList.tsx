@@ -28,7 +28,7 @@ const remove = (arr: string[], value?: string) => {
   return [...new Set(set)];
 };
 
-const WordList = ({ allowSave = true, placeholder, label, onChange }: Props) => {
+export const WordList = ({ allowSave = true, placeholder, label, onChange }: Props) => {
   const inputEl = React.useRef<HTMLInputElement>(null);
   const [words, setWords] = React.useState<string[]>([]);
   const [currentWord, setCurrentWord] = React.useState<string>('');
@@ -111,5 +111,3 @@ const WordList = ({ allowSave = true, placeholder, label, onChange }: Props) => 
     </div>
   );
 };
-
-export default WordList;

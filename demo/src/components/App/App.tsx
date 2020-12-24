@@ -3,8 +3,8 @@ import faker from 'faker';
 import HighlightText from '@brianmcallister/react-highlight-text';
 import React from 'react';
 
-import LogoIcon from '../LogoIcon';
-import WordList from '../WordList';
+import { LogoIcon } from '../LogoIcon';
+import { WordList } from '../WordList';
 
 import './_app.scss';
 
@@ -66,7 +66,7 @@ const INITIAL_MESSAGES = [...new Array(15)].map(getMsg);
 /**
  * App component.
  */
-const App = () => {
+export const App = () => {
   const chatEl = React.useRef<HTMLDivElement>(null);
   const [basicWords, setBasicWords] = React.useState<string[]>([]);
   const [htmlWords, setHtmlWords] = React.useState<string[]>([]);
@@ -212,5 +212,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;

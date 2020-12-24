@@ -1,1 +1,1 @@
-export { default } from './WordList';
+export { WordList } from './WordList';
