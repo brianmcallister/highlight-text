@@ -1,13 +1,15 @@
+/* eslint-env node */
+
 const path = require('path');
 
 const { NODE_ENV: env = 'development' } = process.env;
 
 module.exports = {
   mode: env,
-  entry: './src/node',
+  entry: './src/highlightNode',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
+    filename: 'highlightNode.js',
     libraryTarget: 'umd',
   },
   resolve: {

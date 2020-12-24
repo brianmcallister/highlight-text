@@ -1,10 +1,10 @@
-import markup from './markup';
-import getBoundaries from './getBoundaries';
+import { markup } from './markup';
+import { getBoundaries } from './getBoundaries';
 
 /**
  * Highlight `words` in `text.
  */
-export default (text: string, words: string[]) => {
+export const highlightText = (text: string, words: string[]): string => {
   if (words.length === 0) {
     return text;
   }

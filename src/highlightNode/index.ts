@@ -1,10 +1,13 @@
-import highlightNodeContent from '../lib/highlightNodeContent';
-import unescape from '../lib/unescape';
+import { highlightNodeContent } from '../highlightNodeContent';
+import { unescapeText } from '../unescapeText';
 
 /**
  * Highlight `words` in `subject`.
  */
-const browser = (subject: string | HTMLElement, words: string[] = []) => {
+export const highlightNode = (
+  subject: string | HTMLElement,
+  words: string[] = [],
+): string => {
   if (words.length === 0) {
     if (subject instanceof HTMLElement) {
       return subject.outerHTML;
@@ -28,10 +31,11 @@ const browser = (subject: string | HTMLElement, words: string[] = []) => {
   const highlighted = highlightNodeContent(el, words);
 
   if (typeof subject === 'string') {
-    return unescape(highlighted.innerHTML);
+    return unescapeText(highlighted.innerHTML);
   }
 
   return highlighted.outerHTML;
 };
 
-export default browser;
+// eslint-disable-next-line import/no-default-export
+export default highlightNode;
