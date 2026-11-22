@@ -24,7 +24,7 @@ By default, the library will accept a string and some sub strings to search for.
 
 ## Demo
 
-Hosted demo: [https://highlight-text.netlify.com/](https://highlight-text.netlify.com/)
+Hosted demo: [https://brianmcallister.github.io/highlight-text/](https://brianmcallister.github.io/highlight-text/)
 
 You can also run the demo locally. To get started:
 

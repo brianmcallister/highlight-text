@@ -4,7 +4,7 @@
   "description": "Hightlight `words` in `text`",
   "main": "dist/index.js",
   "repository": "brianmcallister/highlight-text",
-  "homepage": "https://highlight-text.netlify.com/",
+  "homepage": "https://brianmcallister.github.io/highlight-text/",
   "license": "MIT",
   "author": {
     "name": "Brian Wm. McAllister",

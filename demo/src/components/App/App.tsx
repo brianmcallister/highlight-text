@@ -43,7 +43,21 @@ const TICKERS = [
   'X',
 ];
 
+const AVATAR_COLORS = ['#5c7080', '#2b95d6', '#15b371', '#d9822b', '#9179f2', '#db3737'];
+
+/**
+ * Build an initials avatar as an inline SVG, so the demo has no external image dependency.
+ */
+const getAvatar = (first: string, last: string) => {
+  const color = AVATAR_COLORS[rand(0, AVATAR_COLORS.length)];
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70"><rect width="70" height="70" fill="${color}"/><text x="50%" y="50%" dy=".35em" text-anchor="middle" font-family="sans-serif" font-size="28" fill="#fff">${first[0]}${last[0]}</text></svg>`;
+
+  return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+};
+
 const getMsg = () => {
+  const first = faker.name.firstName();
+  const last = faker.name.lastName();
   const pre = faker.lorem.sentence(rand(1, 5));
   const post = faker.lorem.sentence(rand(1, 3));
   const hasSymbol = Math.random() > 0.4;
@@ -58,8 +72,8 @@ const getMsg = () => {
     // @ts-expect-error timestyle?
     date: new Date().toLocaleTimeString('en', { timeStyle: 'medium' }),
     msg: `${pre}${sym}${post}`.trim(),
-    from: `${faker.name.firstName()} ${faker.name.lastName()}`,
-    avatar: faker.internet.avatar(),
+    from: `${first} ${last}`,
+    avatar: getAvatar(first, last),
   };
 };
 
