@@ -24,14 +24,11 @@ jobs:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
           cache-dependency-path: demo/package-lock.json
       - run: npm ci
-      # The demo uses webpack 4, which needs the legacy OpenSSL provider on modern Node.
-      - run: NODE_ENV=production npx webpack --mode=production
-        env:
-          NODE_OPTIONS: --openssl-legacy-provider
+      - run: npm run build
       - uses: actions/upload-pages-artifact@v5
         with:
           path: demo/dist

@@ -1,16 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "es2015"],
-    "module": "commonjs",
-    "declaration": true,
-    "outDir": "dist",
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
     "strict": true,
-    "jsx": "react",
-    "esModuleInterop": true,
-    "downlevelIteration": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "types": ["vite/client"],
+    "paths": {
+      "@brianmcallister/highlight-text": ["../src/index.ts"]
+    }
   },
-  "include": [
-    "./src",
-  ]
+  "include": ["src"]
 }

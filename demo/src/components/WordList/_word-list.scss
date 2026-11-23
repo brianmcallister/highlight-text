@@ -1,4 +1,7 @@
-@import '../../styles/base';
+@use "sass:map";
+@use '../../styles/base';
+@use "../../styles/mixins/typography";
+@use "../../styles/variables/colors";
 
 .word-list {
   $this: &;
@@ -19,7 +22,7 @@
 
   &__clear-text {
     background: none;
-    color: map-get($colors, bayard) !important;
+    color: map.get(colors.$colors, bayard) !important;
     display: none;
     position: absolute;
     right: 0;
@@ -37,18 +40,18 @@
   }
 
   &__tag {
-    @include type-style-manhattan;
+    @include typography.type-style-manhattan;
 
-    background: map-get($colors, bayard);
+    background: map.get(colors.$colors, bayard);
     border-radius: 4px;
-    color: map-get($colors, barrow);
+    color: map.get(colors.$colors, barrow);
     display: inline-block;
     margin: 5px;
     padding: 2px 8px;
 
     button {
       background: none;
-      color: map-get($colors, beach);
+      color: map.get(colors.$colors, beach);
       height: 17px;
       line-height: 0;
       margin: 0 0 0 6px;
@@ -59,7 +62,7 @@
   }
 
   label {
-    @include type-style-manhattan;
+    @include typography.type-style-manhattan;
   }
 
   &--has-input {

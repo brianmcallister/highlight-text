@@ -1,8 +1,12 @@
-@import '../../styles/base';
+@use "sass:map";
+@use '../../styles/base';
+@use "../../styles/mixins/responsive";
+@use "../../styles/mixins/typography";
+@use "../../styles/variables/colors";
 
 .app {
   &__header {
-    @include type-style-manhattan;
+    @include typography.type-style-manhattan;
 
     align-items: center;
     display: flex;
@@ -10,20 +14,20 @@
     margin: auto;
     padding: 30px;
 
-    @include mobile {
-      background: map-get($colors, ann);
+    @include responsive.mobile {
+      background: map.get(colors.$colors, ann);
     }
   }
 
   &__header-link {
-    color: map-get($colors, allen);
+    color: map.get(colors.$colors, allen);
     margin-left: 10px;
     text-decoration: none;
   }
 
   &__header-links {
     a {
-      color: map-get($colors, allen);
+      color: map.get(colors.$colors, allen);
       margin-left: 10px;
       text-decoration: none;
 
@@ -39,27 +43,27 @@
   }
 
   &__lead-in {
-    @include type-style-queens;
+    @include typography.type-style-queens;
 
-    background-color: map-get($colors, allen);
-    color: map-get($colors, barrow);
+    background-color: map.get(colors.$colors, allen);
+    color: map.get(colors.$colors, barrow);
     margin: 20px 0 50px;
     padding: 50px 150px 50px 50px;
     width: 90%;
 
-    @include mobile {
-      @include type-style-manhattan;
+    @include responsive.mobile {
+      @include typography.type-style-manhattan;
 
       margin-bottom: 10px;
       padding: 15px;
     }
 
     a {
-      color: map-get($colors, barrow);
+      color: map.get(colors.$colors, barrow);
     }
 
     code {
-      background: map-get($colors, beach);
+      background: map.get(colors.$colors, beach);
       padding: 1px 3px;
     }
   }
@@ -67,17 +71,17 @@
   &__example {
     display: flex;
 
-    @include mobile {
+    @include responsive.mobile {
       flex-direction: column;
     }
   }
 
   &__example-text {
-    background-color: map-get($colors, allen);
+    background-color: map.get(colors.$colors, allen);
     flex: 3;
     padding: 15px 45px 100px;
 
-    @include mobile {
+    @include responsive.mobile {
       padding: 15px;
     }
 
@@ -87,80 +91,80 @@
   }
 
   &__headline {
-    @include type-style-brooklyn;
+    @include typography.type-style-brooklyn;
 
-    color: map-get($colors, astor);
+    color: map.get(colors.$colors, astor);
     margin-bottom: 15px;
 
-    @include mobile {
-      @include type-style-queens;
+    @include responsive.mobile {
+      @include typography.type-style-queens;
 
       margin: 0 0 15px;
     }
   }
 
   &__example-content {
-    @include type-style-bronx;
+    @include typography.type-style-bronx;
 
-    color: map-get($colors, barrow);
+    color: map.get(colors.$colors, barrow);
     margin: 0 auto;
     max-width: 1020px;
   }
 
   &__example-result {
-    @include type-style-queens;
+    @include typography.type-style-queens;
 
-    background: map-get($colors, ann);
-    color: map-get($colors, beak);
+    background: map.get(colors.$colors, ann);
+    color: map.get(colors.$colors, beak);
     flex: 5;
     padding: 37px 0 100px 60px;
 
-    @include mobile {
-      @include type-style-bronx;
+    @include responsive.mobile {
+      @include typography.type-style-bronx;
 
       padding: 15px;
     }
 
     a {
-      color: map-get($colors, beekman);
+      color: map.get(colors.$colors, beekman);
     }
 
     .highlight-text {
       padding: 30px 40px;
 
-      @include mobile {
+      @include responsive.mobile {
         padding: 0;
       }
     }
   }
 
   &__chat-example {
-    background: map-get($colors, bayard);
+    background: map.get(colors.$colors, bayard);
     padding: 100px;
 
-    @include mobile {
+    @include responsive.mobile {
       padding: 15px 15px 50px;
     }
   }
 
   &__chat-headline {
-    @include type-style-brooklyn;
+    @include typography.type-style-brooklyn;
 
-    color: map-get($colors, ann);
+    color: map.get(colors.$colors, ann);
     margin: 0;
     text-align: center;
 
-    @include mobile {
-      @include type-style-queens;
+    @include responsive.mobile {
+      @include typography.type-style-queens;
     }
   }
 
   .browser {
-    box-shadow: 0 10px 25px 5px rgba(map-get($colors, bethune), 0.8);
+    box-shadow: 0 10px 25px 5px rgba(map.get(colors.$colors, bethune), 0.8);
     margin-top: 50px;
     width: 100%;
 
-    @include mobile {
+    @include responsive.mobile {
       margin-top: 15px;
     }
 
@@ -189,20 +193,20 @@
       background: #fff;
       display: flex;
 
-      @include mobile {
+      @include responsive.mobile {
         flex-direction: column;
       }
     }
 
     &__saved-terms {
-      @include type-style-brooklyn;
+      @include typography.type-style-brooklyn;
 
-      background-color: map-get($colors, bayard);
-      color: map-get($colors, astor);
+      background-color: map.get(colors.$colors, bayard);
+      color: map.get(colors.$colors, astor);
       flex: 0 0 250px;
       padding: 30px 0 60px 30px;
 
-      @include mobile {
+      @include responsive.mobile {
         flex: 0 0;
         font-size: initial;
         padding: 15px;
@@ -211,8 +215,8 @@
       p {
         margin: 0;
 
-        @include mobile {
-          @include type-style-bronx;
+        @include responsive.mobile {
+          @include typography.type-style-bronx;
 
           display: inline;
           line-height: normal;
@@ -222,13 +226,13 @@
     }
 
     &__saved-headline {
-      @include type-style-bronx;
+      @include typography.type-style-bronx;
 
-      color: map-get($colors, beach);
+      color: map.get(colors.$colors, beach);
       margin-bottom: 25px !important;
 
-      @include mobile {
-        @include type-style-bronx;
+      @include responsive.mobile {
+        @include typography.type-style-bronx;
       }
     }
 
@@ -236,7 +240,7 @@
       flex: 1;
 
       &__scroll-container {
-        @include mobile {
+        @include responsive.mobile {
           height: 200px !important;
         }
       }
@@ -262,15 +266,15 @@
     }
 
     &__msg-from {
-      @include type-style-manhattan;
+      @include typography.type-style-manhattan;
 
       margin-right: 10px;
     }
 
     &__msg-date {
-      @include type-style-manhattan;
+      @include typography.type-style-manhattan;
 
-      color: map-get($colors, barrow);
+      color: map.get(colors.$colors, barrow);
     }
 
     &__msg-avatar {
@@ -283,13 +287,13 @@
     }
 
     .highlight-text {
-      @include type-style-queens;
+      @include typography.type-style-queens;
 
-      color: map-get($colors, bayard);
+      color: map.get(colors.$colors, bayard);
       margin-top: -2px;
 
-      @include mobile {
-        @include type-style-manhattan;
+      @include responsive.mobile {
+        @include typography.type-style-manhattan;
       }
     }
   }

@@ -33,7 +33,9 @@ export const WordList = ({
   placeholder,
   label,
   onChange,
-}: Props): JSX.Element => {
+}: Props) => {
+  // Each word list needs its own id, so its label points at the right input.
+  const inputId = React.useId();
   const inputEl = React.useRef<HTMLInputElement>(null);
   const [words, setWords] = React.useState<string[]>([]);
   const [currentWord, setCurrentWord] = React.useState<string>('');
@@ -72,12 +74,12 @@ export const WordList = ({
   return (
     <div className={cls}>
       <form onSubmit={onSubmit}>
-        {label && <label htmlFor="input-1">{label}</label>}
+        {label && <label htmlFor={inputId}>{label}</label>}
 
         <div className={`${baseClass}__input-wrap`}>
           <input
             className={`${baseClass}__input`}
-            id="input-1"
+            id={inputId}
             ref={inputEl}
             placeholder={placeholder}
             onKeyUp={(event) => setCurrentWord(event.currentTarget.value)}
