@@ -1,6 +1,6 @@
 # @brianmcallister/highlight-text
 
-[![codecov](https://codecov.io/gh/brianmcallister/highlight-text/branch/master/graph/badge.svg)](https://codecov.io/gh/brianmcallister/highlight-text) [![CircleCI](https://circleci.com/gh/brianmcallister/highlight-text.svg?style=svg)](https://circleci.com/gh/brianmcallister/highlight-text) [![npm version](https://img.shields.io/npm/v/@brianmcallister/highlight-text?label=version&color=%2354C536&logo=npm)](https://www.npmjs.com/package/@brianmcallister/highlight-text)
+[![CI](https://github.com/brianmcallister/highlight-text/actions/workflows/ci.yml/badge.svg)](https://github.com/brianmcallister/highlight-text/actions/workflows/ci.yml) [![npm version](https://img.shields.io/npm/v/@brianmcallister/highlight-text?label=version&color=%2354C536&logo=npm)](https://www.npmjs.com/package/@brianmcallister/highlight-text)
 
 > Highlight `words` in some `text`
 
@@ -20,7 +20,7 @@ By default, the library will accept a string and some sub strings to search for.
 - [Installation](#installation)
 - [Usage](#usage)
 - [API](#api)
-	- [`highlightText`](#highlighttext)
+  - [`highlightText`](#highlighttext)
 
 ## Demo
 
@@ -51,7 +51,18 @@ npm install @brianmcallister/highlight-text
 import highlightText from '@brianmcallister/highlight-text';
 
 highlightText('some text', ['om', 'ex']);
-// #=> 's<mark>om</mark>e t<mark>ex</mark>t'
+// => 's<mark>om</mark>e t<mark>ex</mark>t'
+```
+
+Matching ignores case, and overlapping matches are combined into a single `<mark>`. The result is an HTML string, so insert it with `innerHTML` (or `dangerouslySetInnerHTML` in React).
+
+To highlight text inside existing HTML, use `highlightNode`:
+
+```js
+import { highlightNode } from '@brianmcallister/highlight-text';
+
+highlightNode('<p>some <b>text</b></p>', ['text']);
+// => '<p>some <b><mark>text</mark></b></p>'
 ```
 
 ###### [⇡ Top](#table-of-contents)
@@ -60,10 +71,51 @@ highlightText('some text', ['om', 'ex']);
 
 ### `highlightText`
 
-This is the default export. Use this function to highlight words in text.
+The default export. Highlights `words` in plain `text`, wrapping each match in `<mark>`.
 
-```js
-highlightText(text: string, words: string[]): string;
+```ts
+highlightText(text: string, words: readonly string[]): string;
 ```
+
+The rest of the text is HTML-escaped, so the result is safe to insert into a page even when `text` comes from a user. Works anywhere, including on a server.
+
+### `highlightNode`
+
+Highlights `words` in HTML. `subject` can be an HTML string or a DOM element.
+
+```ts
+highlightNode(subject: string | Element, words?: readonly string[]): string;
+```
+
+Only text is highlighted. Tags, attributes and the contents of `<script>` and `<style>` elements are left alone. An element is never modified: it's cloned, and the highlighted copy's `outerHTML` is returned. HTML strings are parsed into an inert `<template>`, so scripts don't run and images don't load while highlighting.
+
+`highlightNode` needs a DOM, so use it in a browser or with something like [jsdom](https://github.com/jsdom/jsdom). It's also available as `@brianmcallister/highlight-text/highlightNode`.
+
+### `getBoundaries`
+
+Returns where `words` appear in `text`, as `[start, end]` index pairs, with overlapping and touching matches merged. `highlightText` and `highlightNode` use it, and it's handy if you want to build your own markup.
+
+```ts
+getBoundaries(text: string, words: readonly string[]): [start: number, end: number][];
+
+getBoundaries('aaa do dollar aaa', ['do', 'dollar']);
+// => [[4, 6], [7, 13]]
+```
+
+###### [⇡ Top](#table-of-contents)
+
+## Upgrading from 2.x
+
+Version 3 fixes several bugs, and two of the fixes change output:
+
+- `highlightText` now escapes HTML in the text. `highlightText('a <b> c', ['c'])` returns `'a &lt;b&gt; <mark>c</mark>'`. If you were passing HTML to `highlightText`, use `highlightNode` instead.
+- `highlightNode` with an element now returns real `<mark>` elements instead of escaped `&lt;mark&gt;` text.
+
+Imports changed too:
+
+- The package has an `exports` map, so imports from `@brianmcallister/highlight-text/dist/...` no longer work. Import `highlightNode` from the package root, or from `@brianmcallister/highlight-text/highlightNode`.
+- The UMD bundle is gone. The package ships ES modules and CommonJS.
+
+See the [changelog](CHANGELOG.md) for everything else.
 
 ###### [⇡ Top](#table-of-contents)

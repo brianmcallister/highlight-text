@@ -1,0 +1,35 @@
+name: Release
+
+# Publishes to npm when a GitHub release is published. The release's tag should match the version
+# in package.json, for example v3.0.0.
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  # Lets npm verify this workflow with trusted publishing, and adds provenance to the package.
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: npm
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          # Trusted publishing needs npm 11.5.1 or later, which ships with Node 24.
+          node-version: 24
+          cache: npm
+          registry-url: https://registry.npmjs.org
+      - name: Check the tag matches package.json
+        run: |
+          version="v$(node -p "require('./package.json').version")"
+          if [ "$version" != "$GITHUB_REF_NAME" ]; then
+            echo "Release tag $GITHUB_REF_NAME doesn't match package.json version $version"
+            exit 1
+          fi
+      - run: npm ci
+      - run: npm test
+      - run: npm publish --access public

@@ -1,4 +1,7 @@
 import { highlightText } from './highlightText';
 
-// eslint-disable-next-line import/no-default-export
+export { getBoundaries, type Boundary } from './getBoundaries';
+export { highlightNode } from './highlightNode';
+export { highlightText };
+
 export default highlightText;
