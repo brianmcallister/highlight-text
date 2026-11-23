@@ -11,7 +11,7 @@ const baseClass = 'logo-icon';
 /**
  * LogoIcon component.
  */
-export const LogoIcon = (): JSX.Element => (
+export const LogoIcon = () => (
   <svg
     className={baseClass}
     width="16"

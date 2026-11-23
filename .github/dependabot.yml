@@ -15,3 +15,11 @@ updates:
     groups:
       actions:
         patterns: ['*']
+
+  - package-ecosystem: npm
+    directory: /demo
+    schedule:
+      interval: monthly
+    groups:
+      demo:
+        patterns: ['*']

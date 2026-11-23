@@ -1,8 +1,7 @@
-import AutoScroll from '@brianmcallister/react-auto-scroll';
-import faker from 'faker';
-import HighlightText from '@brianmcallister/react-highlight-text';
 import React from 'react';
 
+import { amount, firstName, lastName, rand, sentence } from '../../fake';
+import { Highlight } from '../Highlight';
 import { LogoIcon } from '../LogoIcon';
 import { WordList } from '../WordList';
 
@@ -21,9 +20,6 @@ const TEXT =
 const HTML_TEXT =
   'Nam eu porta nulla. <a href="https://google.com">Google</a> Quisque turpis ligula, euismod a tempus viverra, elementum sit amet metus. Vestibulum quis eleifend enim. Duis efficitur dapibus pulvinar. Phasellus euismod malesuada nisi, quis ullamcorper felis vulputate <a href="https://apple.com">https://apple.com</a> id. Curabitur quis nisl eget ligula suscipit eleifend. In sit amet leo purus. Ut maximus, enim ut sollicitudin finibus, ipsum sapien dictum neque, non hendrerit justo ex et ex.';
 
-const rand = (min = 0, max = 0) => {
-  return Math.floor(Math.random() * (max - min) + min);
-};
 
 const TICKERS = [
   'AAPL',
@@ -56,20 +52,19 @@ const getAvatar = (first: string, last: string) => {
 };
 
 const getMsg = () => {
-  const first = faker.name.firstName();
-  const last = faker.name.lastName();
-  const pre = faker.lorem.sentence(rand(1, 5));
-  const post = faker.lorem.sentence(rand(1, 3));
+  const first = firstName();
+  const last = lastName();
+  const pre = sentence(rand(1, 5));
+  const post = sentence(rand(1, 3));
   const hasSymbol = Math.random() > 0.4;
   const side = Math.random() > 0.4 ? 'buy' : 'sell';
   const sym = hasSymbol
     ? ` I'd like to ${side} ${
         TICKERS[rand(0, TICKERS.length)]
-      } @ $${faker.finance.amount()} `
+      } @ $${amount()} `
     : ' ';
 
   return {
-    // @ts-expect-error timestyle?
     date: new Date().toLocaleTimeString('en', { timeStyle: 'medium' }),
     msg: `${pre}${sym}${post}`.trim(),
     from: `${first} ${last}`,
@@ -83,7 +78,7 @@ const placeholderWords = ['dolor', 'sit', 'amet'];
 /**
  * App component.
  */
-export const App = (): JSX.Element => {
+export const App = () => {
   const chatEl = React.useRef<HTMLDivElement>(null);
   const [basicWords, setBasicWords] = React.useState<string[]>([]);
   const [htmlWords, setHtmlWords] = React.useState<string[]>([]);
@@ -91,24 +86,26 @@ export const App = (): JSX.Element => {
   const placeholderWord =
     placeholderWords[basicWords.length % placeholderWords.length];
 
+  // Add a new message every so often, keeping the 15 most recent.
   React.useEffect(() => {
     const interval = setInterval(() => {
       if (Math.random() > 0.05) {
         return;
       }
 
-      setMessages(messages.concat([getMsg()]).slice(-15));
-
-      const { current } = chatEl;
-
-      if (current) {
-        setTimeout(() => {
-          current.scrollTop = current.scrollHeight;
-        }, 0);
-      }
+      setMessages((current) => current.concat([getMsg()]).slice(-15));
     }, 100);
 
     return () => clearInterval(interval);
+  }, []);
+
+  // Keep the chat scrolled to the newest message.
+  React.useEffect(() => {
+    const { current } = chatEl;
+
+    if (current) {
+      current.scrollTo({ top: current.scrollHeight, behavior: 'smooth' });
+    }
   }, [messages]);
 
   return (
@@ -169,7 +166,7 @@ export const App = (): JSX.Element => {
           </div>
 
           <div className={`${baseClass}__example-result`}>
-            <HighlightText text={TEXT} words={basicWords} />
+            <Highlight text={TEXT} words={basicWords} />
           </div>
         </div>
 
@@ -197,7 +194,7 @@ export const App = (): JSX.Element => {
           </div>
 
           <div className={`${baseClass}__example-result`}>
-            <HighlightText text={HTML_TEXT} words={htmlWords} />
+            <Highlight html text={HTML_TEXT} words={htmlWords} />
           </div>
         </div>
 
@@ -219,7 +216,12 @@ export const App = (): JSX.Element => {
                 <p>FB</p>
               </div>
 
-              <AutoScroll height={500} showOption={false}>
+              <div className="react-auto-scroll">
+                <div
+                  className="react-auto-scroll__scroll-container"
+                  ref={chatEl}
+                  style={{ height: 500, overflowY: 'auto' }}
+                >
                 {messages.map((msg) => {
                   return (
                     <div key={msg.msg} className="browser__msg">
@@ -235,15 +237,13 @@ export const App = (): JSX.Element => {
                           <span className="browser__msg-date">{msg.date}</span>
                         </p>
 
-                        <HighlightText
-                          text={msg.msg}
-                          words={['AAPL', 'FB', 'GOOG']}
-                        />
+                        <Highlight text={msg.msg} words={['AAPL', 'FB', 'GOOG']} />
                       </div>
                     </div>
                   );
                 })}
-              </AutoScroll>
+                </div>
+              </div>
             </div>
           </div>
         </div>

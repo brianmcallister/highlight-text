@@ -1,5 +1,4 @@
-@import 'variables/colors';
+@use 'variables/colors';
 
-@import
-  'mixins/typography',
-  'mixins/responsive';
+@use 'mixins/typography';
+@use 'mixins/responsive';
