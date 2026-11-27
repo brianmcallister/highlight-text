@@ -1,4 +1,9 @@
-# @brianmcallister/highlight-text
+<h1>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/brianmcallister/highlight-text/main/.github/assets/logo-dark.svg">
+    <img alt="@brianmcallister/highlight-text" src="https://raw.githubusercontent.com/brianmcallister/highlight-text/main/.github/assets/logo-light.svg" height="48">
+  </picture>
+</h1>
 
 [![CI](https://github.com/brianmcallister/highlight-text/actions/workflows/ci.yml/badge.svg)](https://github.com/brianmcallister/highlight-text/actions/workflows/ci.yml) [![npm version](https://img.shields.io/npm/v/@brianmcallister/highlight-text?label=version&color=%2354C536&logo=npm)](https://www.npmjs.com/package/@brianmcallister/highlight-text)
 
